@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Манзушир хийд</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #fff;
+      color: #333;
+    }
+    header {
+      background-color: #8B4513;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #333;
+    }
+    nav a {
+      color: white;
+      padding: 1rem;
+      text-decoration: none;
+    }
+    nav a:hover {
+      background-color: #555;
+    }
+    .hero {
+      background: url('images/hero.jpg') no-repeat center center/cover;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    .section {
+      padding: 2rem;
+      text-align: center;
+    }
+    .cards {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+    .card {
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      width: 300px;
+      margin: 1rem;
+      padding: 1rem;
+    }
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Манзушир хийд</h1>
+  </header>
+  <nav>
+    <a href="#home">Нүүр</a>
+    <a href="#history">Түүх</a>
+    <a href="#map">Газрын зураг</a>
+    <a href="#contact">Холбоо барих</a>
+  </nav>
+  <div class="hero">
+    Манзушир хийдийн танилцуулга
+  </div>
+  <section id="history" class="section">
+    <h2>Түүхэн мэдээлэл</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="images/history1.jpg" alt="Түүхэн зураг" width="100%">
+        <p>Манзушир хийдийг анх хэдэн лам байгуулсан тухай...</p>
+      </div>
+      <div class="card">
+        <img src="images/history2.jpg" alt="Түүхэн зураг" width="100%">
+        <p>Хийдийн түүхэн баримт, соёлын өв...</p>
+      </div>
+    </div>
+  </section>
+  <section id="map" class="section">
+    <h2>Орчны газрын зураг</h2>
+    <p>Энд Google Maps API эсвэл OpenStreetMap холбож болно.</p>
+    <div id="map-container" style="height:300px; background:#eee;">Газрын зураг байрлах хэсэг</div>
+  </section>
+  <footer id="contact">
+    <p>Хаяг: Улаанбаатар, Монгол</p>
+    <p>Утас: +976-xxxxxxx</p>
+  </footer>
+</body>
+</html>
