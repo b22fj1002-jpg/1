@@ -1,0 +1,1587 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Манзушир Хийд | Manzushir Monastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=IM+Fell+English:ital@0;1&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Sans+KR:wght@300;400;500&family=Noto+Sans+SC:wght@300;400;500&family=Noto+Serif+Mongolian&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --gold-dark: #8B6914;
+    --deep: #0D0D0B;
+    --deep2: #1A1A14;
+    --stone: #2A2820;
+    --stone-light: #3D3A2E;
+    --cream: #F2EBD9;
+    --cream2: #E8DFC8;
+    --text-light: #F2EBD9;
+    --text-muted: #B8A98A;
+    --border: rgba(201,168,76,0.25);
+    --accent: #7B4F2E;
+    --green-dark: #1C2E1A;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--deep);
+    color: var(--cream);
+    font-family: 'IM Fell English', Georgia, serif;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+  .lang-mn .lc-en,.lang-mn .lc-jp,.lang-mn .lc-kr,.lang-mn .lc-cn { display:none; }
+  .lang-en .lc-mn,.lang-en .lc-jp,.lang-en .lc-kr,.lang-en .lc-cn { display:none; }
+  .lang-jp .lc-mn,.lang-jp .lc-en,.lang-jp .lc-kr,.lang-jp .lc-cn { display:none; }
+  .lang-kr .lc-mn,.lang-kr .lc-en,.lang-kr .lc-jp,.lang-kr .lc-cn { display:none; }
+  .lang-cn .lc-mn,.lang-cn .lc-en,.lang-cn .lc-jp,.lang-cn .lc-kr { display:none; }
+ 
+  /* NAV */
+  nav {
+    position: fixed; top:0; left:0; right:0; z-index:100;
+    background: linear-gradient(to bottom, rgba(13,13,11,0.97), transparent);
+    padding: 1rem 3rem;
+    display: flex; align-items:center; justify-content:space-between;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .logo {
+    font-family: 'Cinzel', serif;
+    font-size: 1.2rem;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    text-decoration:none;
+  }
+  .logo span { color: var(--cream); }
+  .nav-links {
+    display: flex; gap:2rem; list-style:none;
+  }
+  .nav-links a {
+    color: var(--cream2);
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .lang-switcher {
+    display: flex; gap:0.4rem;
+  }
+  .lang-btn {
+    background: none;
+    border: 0.5px solid var(--border);
+    color: var(--text-muted);
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    padding: 0.3rem 0.55rem;
+    border-radius: 2px;
+    cursor: pointer;
+    letter-spacing: 0.08em;
+    transition: all 0.2s;
+  }
+  .lang-btn:hover, .lang-btn.active {
+    background: var(--gold);
+    color: var(--deep);
+    border-color: var(--gold);
+  }
+ 
+  /* HERO */
+  .hero {
+    position: relative;
+    height: 100vh;
+    display: flex; align-items:center; justify-content:center;
+    text-align: center;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset:0;
+    background-image: url(photos/1.jpg.webp);
+    background-size: cover;
+    background-position: center 30%;
+    filter: brightness(0.45) saturate(0.8);
+  }
+  .hero-overlay {
+    position:absolute; inset:0;
+    background: linear-gradient(to bottom, rgba(13,13,11,0.3) 0%, transparent 40%, rgba(13,13,11,0.8) 100%);
+  }
+  .hero-content {
+    position: relative; z-index:2;
+    max-width: 780px;
+    padding: 2rem;
+  }
+  .hero-eyebrow {
+    font-family:'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.4em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+  .hero-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 700;
+    color: var(--cream);
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.05em;
+  }
+  .hero-sub {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: clamp(1rem, 2vw, 1.4rem);
+    color: var(--gold-light);
+    margin-bottom: 2rem;
+  }
+  .hero-desc {
+    font-size: 1rem;
+    color: var(--text-muted);
+    max-width: 520px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.8;
+  }
+  .btn-group { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--deep);
+    border: none;
+    padding: 0.85rem 2.5rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s;
+  }
+  .btn-primary:hover { background: var(--gold-light); }
+  .btn-outline {
+    background: transparent;
+    color: var(--cream);
+    border: 1px solid var(--border);
+    padding: 0.85rem 2.5rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+  .scroll-hint {
+    position:absolute; bottom:2.5rem; left:50%; transform:translateX(-50%);
+    z-index:2;
+    display:flex; flex-direction:column; align-items:center; gap:0.5rem;
+  }
+  .scroll-hint span {
+    font-family:'Cinzel',serif; font-size:0.6rem; letter-spacing:0.3em;
+    color: var(--text-muted); text-transform:uppercase;
+  }
+  .scroll-line {
+    width:1px; height:40px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollPulse 1.8s ease-in-out infinite;
+  }
+  @keyframes scrollPulse { 0%,100%{opacity:0.3} 50%{opacity:1} }
+ 
+  /* QUICK INFO */
+  .quick-info {
+    background: var(--stone);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 1.5rem 3rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+  .qi-item {
+    text-align:center;
+  }
+  .qi-label {
+    font-family:'Cinzel',serif;
+    font-size:0.6rem;
+    letter-spacing:0.25em;
+    color: var(--gold);
+    text-transform:uppercase;
+    display:block;
+    margin-bottom:0.3rem;
+  }
+  .qi-val {
+    font-size: 0.9rem;
+    color: var(--cream);
+  }
+ 
+  /* SECTIONS */
+  section { padding: 6rem 3rem; }
+  .section-eyebrow {
+    font-family:'Cinzel',serif;
+    font-size:0.65rem;
+    letter-spacing:0.4em;
+    color: var(--gold);
+    text-transform:uppercase;
+    margin-bottom:0.75rem;
+  }
+  .section-title {
+    font-family:'Cinzel',serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    color: var(--cream);
+    margin-bottom:1.5rem;
+    font-weight:600;
+  }
+  .divider {
+    width:60px; height:1px;
+    background: var(--gold);
+    margin-bottom:1.5rem;
+  }
+ 
+  /* ABOUT / HISTORY */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .about-img {
+    position: relative;
+  }
+  .about-img img {
+    width:100%; height:420px; object-fit:cover;
+    border: 1px solid var(--border);
+  }
+  .about-img-caption {
+    position:absolute; bottom:0; left:0; right:0;
+    background: rgba(13,13,11,0.85);
+    padding:0.75rem 1rem;
+    font-size:0.8rem;
+    color: var(--text-muted);
+    font-style:italic;
+  }
+ 
+  /* TIMELINE */
+  .timeline {
+    position:relative;
+    padding-left: 2rem;
+    margin-top: 2rem;
+  }
+  .timeline::before {
+    content:'';
+    position:absolute; left:0; top:0; bottom:0;
+    width:1px; background: var(--border);
+  }
+  .tl-item {
+    position:relative;
+    margin-bottom: 2rem;
+    padding-left: 1.5rem;
+  }
+  .tl-item::before {
+    content:'';
+    position:absolute; left:-0.35rem; top:0.4rem;
+    width:8px; height:8px;
+    background: var(--gold);
+    border-radius:50%;
+  }
+  .tl-year {
+    font-family:'Cinzel',serif;
+    color: var(--gold);
+    font-size:0.85rem;
+    letter-spacing:0.1em;
+    margin-bottom:0.25rem;
+  }
+  .tl-text {
+    font-size:0.95rem;
+    color: var(--text-muted);
+    line-height:1.7;
+  }
+ 
+  /* AUDIO PLAYER */
+  .audio-section {
+    background: var(--deep2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2.5rem;
+    margin-top: 3rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .audio-header {
+    display:flex; align-items:center; gap:1rem; margin-bottom:1.5rem;
+  }
+  .audio-icon {
+    width:44px; height:44px;
+    background: var(--gold);
+    display:flex; align-items:center; justify-content:center;
+    border-radius:50%;
+    cursor:pointer;
+    transition: background 0.2s;
+    flex-shrink:0;
+  }
+  .audio-icon:hover { background: var(--gold-light); }
+  .audio-icon svg { width:18px; height:18px; fill: var(--deep); }
+  .audio-title-block h3 {
+    font-family:'Cinzel',serif;
+    font-size:1rem;
+    color: var(--cream);
+    margin-bottom:0.2rem;
+  }
+  .audio-title-block p {
+    font-size:0.8rem; color: var(--text-muted);
+  }
+  .audio-lang-tabs {
+    display:flex; gap:0.4rem; flex-wrap:wrap; margin-bottom:1.5rem;
+  }
+  .audio-tab {
+    background: none;
+    border: 0.5px solid var(--border);
+    color: var(--text-muted);
+    font-family:'Cinzel',serif;
+    font-size:0.65rem;
+    letter-spacing:0.1em;
+    padding: 0.4rem 1rem;
+    cursor:pointer;
+    transition: all 0.2s;
+  }
+  .audio-tab:hover, .audio-tab.active {
+    background: var(--stone-light);
+    color: var(--gold);
+    border-color: var(--gold);
+  }
+  .audio-text-content {
+    background: var(--stone);
+    border-left: 2px solid var(--gold);
+    padding: 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.9;
+    color: var(--cream2);
+    min-height: 120px;
+  }
+  .audio-progress {
+    margin-top: 1.5rem;
+    display:flex; align-items:center; gap:1rem;
+  }
+  .progress-bar {
+    flex:1; height:3px;
+    background: var(--stone-light);
+    border-radius:2px;
+    position:relative;
+    cursor:pointer;
+  }
+  .progress-fill {
+    height:100%; border-radius:2px;
+    background: var(--gold);
+    width: 0%;
+    transition: width 0.1s;
+  }
+  .time-display {
+    font-family:'Cinzel',serif;
+    font-size:0.7rem;
+    color: var(--text-muted);
+    min-width:80px;
+    text-align:right;
+  }
+ 
+  /* EXPERIENCES */
+  .exp-section { background: var(--deep2); }
+  .experiences-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width:1200px;
+    margin: 2rem auto 0;
+  }
+  .exp-card {
+    border: 0.5px solid var(--border);
+    background: var(--stone);
+    padding: 2rem;
+    position:relative;
+    overflow:hidden;
+    transition: border-color 0.3s, transform 0.3s;
+    cursor: default;
+  }
+  .exp-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-4px);
+  }
+  .exp-num {
+    font-family:'Cinzel',serif;
+    font-size:2.5rem;
+    color: rgba(201,168,76,0.12);
+    position:absolute; top:0.5rem; right:1rem;
+    line-height:1;
+    user-select:none;
+  }
+  .exp-icon {
+    font-size:1.8rem; margin-bottom:1rem;
+  }
+  .exp-title {
+    font-family:'Cinzel',serif;
+    font-size:1rem;
+    color: var(--gold);
+    margin-bottom:0.5rem;
+    letter-spacing:0.05em;
+  }
+  .exp-desc { font-size:0.9rem; color: var(--text-muted); line-height:1.7; }
+ 
+  /* GALLERY */
+  .gallery-section { background: var(--deep); }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 280px 220px;
+    gap: 8px;
+    max-width:1200px;
+    margin: 2rem auto 0;
+  }
+  .gallery-item {
+    overflow:hidden;
+    position:relative;
+    cursor:pointer;
+  }
+  .gallery-item:first-child {
+    grid-row: 1/3;
+    grid-column: 1/2;
+  }
+  .gallery-item img {
+    width:100%; height:100%;
+    object-fit:cover;
+    transition: transform 0.6s ease, filter 0.4s;
+    filter: brightness(0.8) saturate(0.85);
+  }
+  .gallery-item:hover img {
+    transform: scale(1.06);
+    filter: brightness(0.9) saturate(1);
+  }
+  .gallery-label {
+    position:absolute; bottom:0; left:0; right:0;
+    background: linear-gradient(transparent, rgba(13,13,11,0.85));
+    padding: 2rem 1rem 0.75rem;
+    font-family:'Cinzel',serif;
+    font-size:0.65rem;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color: var(--gold);
+    opacity:0;
+    transition: opacity 0.3s;
+  }
+  .gallery-item:hover .gallery-label { opacity:1; }
+ 
+  /* PLAN VISIT */
+  .plan-section { background: var(--stone); }
+  .plan-grid {
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap:1.5rem;
+    max-width:1200px;
+    margin: 2rem auto 0;
+  }
+  .plan-card {
+    background: var(--deep2);
+    border: 0.5px solid var(--border);
+    padding: 1.75rem;
+    border-radius:2px;
+  }
+  .plan-card h3 {
+    font-family:'Cinzel',serif;
+    font-size:0.9rem;
+    color: var(--gold);
+    letter-spacing:0.1em;
+    margin-bottom:0.75rem;
+  }
+  .plan-card p, .plan-card li {
+    font-size:0.88rem;
+    color: var(--text-muted);
+    line-height:1.8;
+    list-style:none;
+  }
+  .plan-card ul li::before {
+    content:'—  ';
+    color: var(--gold);
+    opacity:0.5;
+  }
+ 
+  /* ECO */
+  .eco-section { background: var(--green-dark); }
+  .eco-grid {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:3rem;
+    max-width:1000px;
+    margin:2rem auto 0;
+    align-items:center;
+  }
+  .eco-list { list-style:none; }
+  .eco-list li {
+    padding: 0.75rem 0;
+    border-bottom: 0.5px solid rgba(201,168,76,0.15);
+    font-size:0.95rem;
+    color: var(--cream2);
+    display:flex; gap:0.75rem;
+  }
+  .eco-list li::before { content:'🌿'; }
+ 
+  /* SOUVENIR / SHOP */
+  .shop-section { background: var(--deep2); }
+  .shop-grid {
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap:1.5rem;
+    max-width:1200px;
+    margin:2rem auto 0;
+  }
+  .shop-item {
+    text-align:center;
+    border: 0.5px solid var(--border);
+    padding:1.5rem 1rem;
+    background: var(--stone);
+    transition: border-color 0.3s;
+  }
+  .shop-item:hover { border-color: var(--gold); }
+  .shop-icon { font-size:2rem; margin-bottom:0.75rem; display:block; }
+  .shop-name {
+    font-family:'Cinzel',serif;
+    font-size:0.8rem;
+    color: var(--cream);
+    letter-spacing:0.05em;
+    margin-bottom:0.4rem;
+  }
+  .shop-sub { font-size:0.8rem; color: var(--text-muted); }
+ 
+  /* FOOTER */
+  footer {
+    background: var(--deep);
+    border-top: 1px solid var(--border);
+    padding: 4rem 3rem 2rem;
+  }
+  .footer-grid {
+    display:grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap:3rem;
+    max-width:1200px;
+    margin:0 auto 3rem;
+  }
+  .footer-brand .logo { font-size:1.1rem; }
+  .footer-brand p {
+    font-size:0.85rem;
+    color: var(--text-muted);
+    margin-top:1rem;
+    line-height:1.8;
+    max-width:250px;
+  }
+  .footer-col h4 {
+    font-family:'Cinzel',serif;
+    font-size:0.65rem;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color: var(--gold);
+    margin-bottom:1rem;
+  }
+  .footer-col ul { list-style:none; }
+  .footer-col li {
+    margin-bottom:0.5rem;
+  }
+  .footer-col a {
+    text-decoration:none;
+    font-size:0.85rem;
+    color: var(--text-muted);
+    transition:color 0.2s;
+  }
+  .footer-col a:hover { color: var(--gold); }
+  .footer-bottom {
+    border-top: 0.5px solid var(--border);
+    padding-top:1.5rem;
+    max-width:1200px;
+    margin:0 auto;
+    display:flex; justify-content:space-between; align-items:center;
+    font-size:0.75rem;
+    color: var(--text-muted);
+  }
+  .social-links { display:flex; gap:1rem; }
+  .social-links a {
+    color: var(--text-muted);
+    text-decoration:none;
+    font-family:'Cinzel',serif;
+    font-size:0.65rem;
+    letter-spacing:0.1em;
+    transition:color 0.2s;
+  }
+  .social-links a:hover { color: var(--gold); }
+ 
+  /* CONTACT */
+  .contact-section { background: var(--deep2); }
+  .contact-grid {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:4rem;
+    max-width:1000px;
+    margin:2rem auto 0;
+  }
+  .contact-info p {
+    font-size:0.95rem;
+    color: var(--text-muted);
+    margin-bottom:1rem;
+    display:flex; gap:0.5rem;
+  }
+  .contact-form input,
+  .contact-form textarea,
+  .contact-form select {
+    width:100%;
+    background: var(--stone);
+    border: 0.5px solid var(--border);
+    color: var(--cream);
+    padding: 0.75rem 1rem;
+    font-family: inherit;
+    font-size:0.9rem;
+    margin-bottom:1rem;
+    outline:none;
+    transition: border-color 0.2s;
+  }
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    border-color: var(--gold);
+  }
+  .contact-form textarea { height:120px; resize:vertical; }
+ 
+  /* MOBILE */
+  @media(max-width:768px){
+    nav { padding:0.75rem 1.25rem; }
+    .nav-links { display:none; }
+    section { padding:4rem 1.25rem; }
+    .about-grid, .contact-grid, .eco-grid { grid-template-columns:1fr; }
+    .gallery-grid {
+      grid-template-columns:1fr 1fr;
+      grid-template-rows:auto;
+    }
+    .gallery-item:first-child { grid-row:auto; grid-column:auto; }
+    .footer-grid { grid-template-columns:1fr 1fr; }
+    .hero { height:100svh; }
+  }
+</style>
+</head>
+<body class="lang-mn">
+ 
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">᠊ <span class="lc-mn">МАНЗУШИР ХИЙД</span><span class="lc-en">MANZUSHIR MONASTERY</span><span class="lc-jp">マンズシル寺院</span><span class="lc-kr">만주시르 사원</span><span class="lc-cn">曼殊寺</span></a>
+  <ul class="nav-links">
+    <li><a href="#about"><span class="lc-mn">БИДНИЙ ТУХАЙ</span><span class="lc-en">ABOUT</span><span class="lc-jp">概要</span><span class="lc-kr">소개</span><span class="lc-cn">关于</span></a></li>
+    <li><a href="#experiences"><span class="lc-mn">ТУРШЛАГА</span><span class="lc-en">EXPERIENCES</span><span class="lc-jp">体験</span><span class="lc-kr">경험</span><span class="lc-cn">体验</span></a></li>
+    <li><a href="#gallery"><span class="lc-mn">ГАЛЕРЕЙ</span><span class="lc-en">GALLERY</span><span class="lc-jp">ギャラリー</span><span class="lc-kr">갤러리</span><span class="lc-cn">相册</span></a></li>
+    <li><a href="#visit"><span class="lc-mn">АЯЛЛАА ТӨЛӨВЛӨХ</span><span class="lc-en">PLAN VISIT</span><span class="lc-jp">訪問計画</span><span class="lc-kr">방문 계획</span><span class="lc-cn">参观计划</span></a></li>
+    <li><a href="#shop"><span class="lc-mn">ДЭЛГҮҮР</span><span class="lc-en">SHOP</span><span class="lc-jp">ショップ</span><span class="lc-kr">쇼핑</span><span class="lc-cn">商店</span></a></li>
+    <li><a href="#contact"><span class="lc-mn">ХОЛБОО</span><span class="lc-en">CONTACT</span><span class="lc-jp">連絡</span><span class="lc-kr">연락처</span><span class="lc-cn">联系</span></a></li>
+  </ul>
+  <div class="lang-switcher">
+    <button class="lang-btn active" onclick="setLang('mn')">MN</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" onclick="setLang('jp')">JP</button>
+    <button class="lang-btn" onclick="setLang('kr')">KR</button>
+    <button class="lang-btn" onclick="setLang('cn')">CN</button>
+  </div>
+</nav>
+ 
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">
+      <span class="lc-mn">Богд Хан Уул · Монгол Улс</span>
+      <span class="lc-en">Bogd Khan Mountain · Mongolia</span>
+      <span class="lc-jp">ボグドハーン山・モンゴル</span>
+      <span class="lc-kr">보그드 칸 산 · 몽골</span>
+      <span class="lc-cn">博格达汗山 · 蒙古国</span>
+    </p>
+    <h1 class="hero-title">
+  <span class="lc-mn">Манзушир Хийд</span>
+  <span class="lc-en">Manzushir Monastery</span>
+  <span class="lc-jp">マンズシル寺院</span>
+  <span class="lc-kr">만주시르 사원</span>
+  <span class="lc-cn">曼殊寺</span>
+</h1>
+    <p class="hero-sub">
+      <span class="lc-mn">Оюун билгийн аялал</span>
+      <span class="lc-en">A Journey of Wisdom & Spirit</span>
+      <span class="lc-jp">智慧と精神の旅</span>
+      <span class="lc-kr">지혜와 영혼의 여행</span>
+      <span class="lc-cn">智慧与心灵之旅</span>
+    </p>
+    <p class="hero-desc">
+      <span class="lc-mn">1733 онд байгуулагдсан, Монголын Буддын шашны эрдэнийн сан. Богд Хан уулын энгэрт байрлах, түүх ба байгалийн хосолмол өв.</span>
+      <span class="lc-en">Founded in 1733, a jewel of Mongolian Buddhism on the slopes of Bogd Khan Mountain — a harmonious heritage of history and nature.</span>
+      <span class="lc-jp">1733年創建、ボグドハーン山の麓に位置するモンゴル仏教の至宝。歴史と自然が調和する複合遺産。</span>
+      <span class="lc-kr">1733년에 창건된 몽골 불교의 보석, 보그드 칸 산 기슭에 위치한 역사와 자연의 조화로운 유산.</span>
+      <span class="lc-cn">创建于1733年，坐落于博格达汗山脚下，是蒙古佛教的瑰宝，历史与自然和谐共融的复合遗产。</span>
+    </p>
+    <div class="btn-group">
+      <a href="#experiences" class="btn-primary">
+        <span class="lc-mn">Аяллаа эхлүүлэх</span>
+        <span class="lc-en">Start Your Journey</span>
+        <span class="lc-jp">旅を始める</span>
+        <span class="lc-kr">여행 시작하기</span>
+        <span class="lc-cn">开始旅程</span>
+      </a>
+      <a href="#about" class="btn-outline">
+        <span class="lc-mn">Дэлгэрэнгүй</span>
+        <span class="lc-en">Explore More</span>
+        <span class="lc-jp">詳しく見る</span>
+        <span class="lc-kr">더 알아보기</span>
+        <span class="lc-cn">了解更多</span>
+      </a>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span class="lc-mn">Доош гүйлгэх</span>
+    <span class="lc-en">Scroll</span>
+    <span class="lc-jp">スクロール</span>
+    <span class="lc-kr">스크롤</span>
+    <span class="lc-cn">滚动</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+ 
+<!-- QUICK INFO -->
+<div class="quick-info">
+  <div class="qi-item">
+    <span class="qi-label lc-mn">Байршил</span><span class="qi-label lc-en">Location</span><span class="qi-label lc-jp">場所</span><span class="qi-label lc-kr">위치</span><span class="qi-label lc-cn">位置</span>
+    <div class="qi-val">
+      <span class="lc-mn">УБ-аас 42 км</span>
+      <span class="lc-en">42km from Ulaanbaatar</span>
+      <span class="lc-jp">ウランバートルから42km</span>
+      <span class="lc-kr">울란바토르에서 42km</span>
+      <span class="lc-cn">距乌兰巴托42公里</span>
+    </div>
+  </div>
+  <div class="qi-item">
+    <span class="qi-label lc-mn">Ажиллах цаг</span><span class="qi-label lc-en">Hours</span><span class="qi-label lc-jp">営業時間</span><span class="qi-label lc-kr">운영 시간</span><span class="qi-label lc-cn">开放时间</span>
+    <div class="qi-val">09:00 – 18:00</div>
+  </div>
+  <div class="qi-item">
+    <span class="qi-label lc-mn">Тасалбар</span><span class="qi-label lc-en">Ticket</span><span class="qi-label lc-jp">入場料</span><span class="qi-label lc-kr">입장권</span><span class="qi-label lc-cn">门票</span>
+    <div class="qi-val">
+      <span class="lc-mn">3,000 / 10,000₮</span>
+      <span class="lc-en">MNT 3,000 / 10,000</span>
+      <span class="lc-jp">3,000 / 10,000₮</span>
+      <span class="lc-kr">3,000 / 10,000₮</span>
+      <span class="lc-cn">3,000 / 10,000₮</span>
+    </div>
+  </div>
+  <div class="qi-item">
+    <span class="qi-label lc-mn">Улирал</span><span class="qi-label lc-en">Season</span><span class="qi-label lc-jp">シーズン</span><span class="qi-label lc-kr">계절</span><span class="qi-label lc-cn">季节</span>
+    <div class="qi-val">
+      <span class="lc-mn">5-р сар — 10-р сар</span>
+      <span class="lc-en">May — October</span>
+      <span class="lc-jp">5月〜10月</span>
+      <span class="lc-kr">5월 — 10월</span>
+      <span class="lc-cn">5月 — 10月</span>
+    </div>
+  </div>
+  <div class="qi-item">
+    <span class="qi-label lc-mn">Утас</span><span class="qi-label lc-en">Phone</span><span class="qi-label lc-jp">電話</span><span class="qi-label lc-kr">전화</span><span class="qi-label lc-cn">电话</span>
+    <div class="qi-val">+976 9911 xxxx</div>
+  </div>
+</div>
+ 
+<!-- ABOUT + HISTORY + AUDIO -->
+<section id="about" style="background: var(--deep2); padding:6rem 3rem;">
+  <div style="max-width:1200px; margin:0 auto;">
+    <p class="section-eyebrow">
+      <span class="lc-mn">Бидний тухай</span><span class="lc-en">About</span><span class="lc-jp">概要</span><span class="lc-kr">소개</span><span class="lc-cn">关于我们</span>
+    </p>
+    <h2 class="section-title">
+      <span class="lc-mn">Манзушир хийдийн түүх</span>
+      <span class="lc-en">History of Manzushir Monastery</span>
+      <span class="lc-jp">マンズシル寺院の歴史</span>
+      <span class="lc-kr">만주시르 사원의 역사</span>
+      <span class="lc-cn">曼殊寺的历史</span>
+    </h2>
+    <div class="divider"></div>
+    <div class="about-grid">
+      <div>
+        <div class="about-img">
+          <img src="photos/manzushir.jpeg"
+               onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Manzushir_Khiid.jpg/1200px-Manzushir_Khiid.jpg'"
+               alt="Manzushir Monastery ruins">
+          <div class="about-img-caption">
+            <span class="lc-mn">Манзушир хийд, Богд Хан уулын энгэрт · 1733 он</span>
+            <span class="lc-en">Manzushir Monastery ruins on Bogd Khan Mountain · Est. 1733</span>
+            <span class="lc-jp">ボグドハーン山麓のマンズシル寺院跡 · 1733年創建</span>
+            <span class="lc-kr">보그드 칸 산 기슭의 만주시르 사원 폐허 · 1733년 설립</span>
+            <span class="lc-cn">坐落于博格达汗山脚下的曼殊寺遗址 · 创建于1733年</span>
+          </div>
+        </div>
+ 
+        <!-- TIMELINE -->
+        <div class="timeline" style="margin-top:2.5rem;">
+          <div class="tl-item">
+            <div class="tl-year">1733</div>
+            <div class="tl-text">
+              <span class="lc-mn">Манзушир хийд анх байгуулагдав. 20 цагаан өргөөтэй эхэлж, 70 гаруй лам нутагласан.</span>
+              <span class="lc-en">Manzushir Monastery was founded with 20 white gers and over 70 monks residing on sacred grounds.</span>
+              <span class="lc-jp">マンズシル寺院が創建。20棟の白いゲルに70人以上の僧侶が住み始めた。</span>
+              <span class="lc-kr">만주시르 사원 창건. 20개의 흰 게르에 70명 이상의 승려가 거주하기 시작했다.</span>
+              <span class="lc-cn">曼殊寺创建，初有20顶白色蒙古包，70余名喇嘛在此驻锡。</span>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">1760</div>
+            <div class="tl-text">
+              <span class="lc-mn">Хийд цэцэглэн хөгжив. 20 сүм, 1,500 гаруй лам тэнд оршин суужээ.</span>
+              <span class="lc-en">The monastery flourished with 20 temples and over 1,500 monks at its peak.</span>
+              <span class="lc-jp">寺院は隆盛を極め、20の寺と1500人以上の僧侶を擁した。</span>
+              <span class="lc-kr">전성기에 20개의 사원과 1,500명 이상의 승려를 거느렸다.</span>
+              <span class="lc-cn">寺院鼎盛时期，拥有20座庙宇、1500余名喇嘛。</span>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">1937</div>
+            <div class="tl-text">
+              <span class="lc-mn">Сталиний хэлмэгдүүлэлтийн үед хийд устгагдаж, 300 гаруй лам алагдав.</span>
+              <span class="lc-en">During Stalinist purges, the monastery was destroyed and more than 300 monks were executed.</span>
+              <span class="lc-jp">スターリン粛清時代に寺院は破壊され、300人以上の僧侶が処刑された。</span>
+              <span class="lc-kr">스탈린 숙청 기간에 사원이 파괴되고 300명 이상의 승려가 처형되었다.</span>
+              <span class="lc-cn">斯大林清洗时期，寺院被摧毁，300余名喇嘛遇难。</span>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">1991</div>
+            <div class="tl-text">
+              <span class="lc-mn">Монгол Улс ардчилалд шилжсэний дараа хийдийн үлдэгдлийг музей болгон нээж, соёлын өвийг хамгаалах ажил эхлэв.</span>
+              <span class="lc-en">After Mongolia's democratic transition, the ruins were opened as a museum and cultural heritage preservation began.</span>
+              <span class="lc-jp">モンゴルの民主化移行後、廃墟は博物館として開放され、文化遺産の保護が始まった。</span>
+              <span class="lc-kr">몽골 민주화 이후 폐허가 박물관으로 개방되고 문화유산 보존이 시작되었다.</span>
+              <span class="lc-cn">蒙古民主化转型后，遗址作为博物馆对外开放，文化遗产保护工作启动。</span>
+            </div>
+          </div>
+          </div>
+      </div>
+      <div>
+ 
+        <!-- THREE PILLARS -->
+       <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:2rem;">
+  <div style="padding:1.5rem; border-left:2px solid var(--gold); background:var(--stone);">
+    <div style="font-family:'Cinzel',serif; font-size:0.65rem; letter-spacing:0.25em; color:var(--gold); margin-bottom:0.75rem; text-transform:uppercase;">
+      <span class="lc-mn">Үүсэл</span><span class="lc-en">Origin</span><span class="lc-jp">起源</span><span class="lc-kr">기원</span><span class="lc-cn">起源</span>
+    </div>
+    <p style="font-size:0.9rem; color:var(--cream2); line-height:1.8;">
+      <span class="lc-mn">Манзушир хийд нь Монгол дахь хамгийн чухал Буддын шашны газруудын нэг бөгөөд Богд Хан уулын байгалийн дархан газрын дотор оршдог.</span>
+      <span class="lc-en">Manzushir Monastery is one of Mongolia's most significant Buddhist sites, nestled within the Bogd Khan Mountain Nature Reserve.</span>
+      <span class="lc-jp">マンズシル寺院はモンゴルで最も重要な仏教遺跡の一つで、ボグドハーン山自然保護区内に位置しています。</span>
+      <span class="lc-kr">만주시르 사원은 몽골에서 가장 중요한 불교 유적지 중 하나로, 보그드 칸 산 자연보호구역 안에 위치해 있습니다.</span>
+      <span class="lc-cn">曼殊寺是蒙古最重要的佛教遗址之一，坐落于博格达汗山自然保护区内。</span>
+    </p>
+  </div>
+  <div style="padding:1.5rem; border-left:2px solid var(--gold); background:var(--stone);">
+    <div style="font-family:'Cinzel',serif; font-size:0.65rem; letter-spacing:0.25em; color:var(--gold); margin-bottom:0.75rem; text-transform:uppercase;">
+      <span class="lc-mn">Өв</span><span class="lc-en">Heritage</span><span class="lc-jp">遺産</span><span class="lc-kr">유산</span><span class="lc-cn">遗产</span>
+    </div>
+    <p style="font-size:0.9rem; color:var(--cream2); line-height:1.8;">
+      <span class="lc-mn">Оргил цагтаа 20 сүм, 1,500 гаруй лам нутагласан энэхүү хийд нь 1937 оны хэлмэгдүүлэлтийн үед устгагдсан боловч түүний үнэт өв одоо ч амьдарсаар байна.</span>
+      <span class="lc-en">At its peak housing 20 temples and 1,500 monks, the monastery was devastated in 1937, yet its precious heritage endures to this day.</span>
+      <span class="lc-jp">最盛期には20の寺と1500人の僧侶を擁したが、1937年に破壊された。しかし、その貴重な遺産は今も生き続けている。</span>
+      <span class="lc-kr">최전성기에는 20개의 사원과 1,500명의 승려가 있었으나 1937년에 파괴되었다. 그러나 귀중한 유산은 오늘날도 살아 숨쉬고 있다.</span>
+      <span class="lc-cn">鼎盛时期曾有20座寺庙和1500名僧侣，1937年遭到破坏，但其珍贵遗产至今仍在延续。</span>
+    </p>
+  </div>
+</div>
+ 
+        <!-- UNESCO badge -->
+        <div style="display:flex; align-items:center; gap:1rem; padding:1rem 1.25rem; border:0.5px solid var(--gold); background:rgba(201,168,76,0.06);">
+          <span style="font-size:1.5rem;">🌐</span>
+          <div>
+            <div style="font-family:'Cinzel',serif; font-size:0.75rem; color:var(--gold); letter-spacing:0.1em; margin-bottom:0.2rem;">UNESCO</div>
+            <div style="font-size:0.83rem; color:var(--text-muted);">
+              <span class="lc-mn">Богд Хан Уул — Монголын хамгийн эртний байгалийн дархан цаазат газар</span>
+              <span class="lc-en">Bogd Khan Mountain — Mongolia's oldest protected nature reserve</span>
+              <span class="lc-jp">ボグドハーン山 — モンゴル最古の自然保護区</span>
+              <span class="lc-kr">보그드 칸 산 — 몽골에서 가장 오래된 자연 보호구역</span>
+              <span class="lc-cn">博格达汗山 — 蒙古最古老的自然保护区</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- AUDIO HISTORY PLAYER -->
+    <div class="audio-section">
+      <div style="margin-bottom:1.5rem;">
+        <p class="section-eyebrow">
+          <span class="lc-mn">🔊 Аудио гарын авлага</span>
+          <span class="lc-en">🔊 Audio History Guide</span>
+          <span class="lc-jp">🔊 音声ガイド</span>
+          <span class="lc-kr">🔊 오디오 가이드</span>
+          <span class="lc-cn">🔊 音频讲解</span>
+        </p>
+        <h3 style="font-family:'Cinzel',serif; font-size:1.15rem; color:var(--cream); margin-bottom:0.5rem;">
+          <span class="lc-mn">Манзушир хийдийн түүхийг сонсох</span>
+          <span class="lc-en">Listen to Manzushir's History</span>
+          <span class="lc-jp">マンズシルの歴史を聴く</span>
+          <span class="lc-kr">만주시르의 역사를 듣다</span>
+          <span class="lc-cn">聆听曼殊寺的历史</span>
+        </h3>
+      </div>
+ 
+      <div class="audio-lang-tabs">
+        <button class="audio-tab active" onclick="switchAudioLang('mn', this)">🇲🇳 Монгол</button>
+        <button class="audio-tab" onclick="switchAudioLang('en', this)">🇬🇧 English</button>
+        <button class="audio-tab" onclick="switchAudioLang('jp', this)">🇯🇵 日本語</button>
+        <button class="audio-tab" onclick="switchAudioLang('kr', this)">🇰🇷 한국어</button>
+        <button class="audio-tab" onclick="switchAudioLang('cn', this)">🇨🇳 中文</button>
+      </div>
+ 
+      <div class="audio-text-content" id="audio-text">
+        Манзушир хийд нь 1733 онд Богд Хан уулын өвөрт байгуулагдсан. Тухайн үед 20 цагаан өргөө барьж, долоон зуун гаруй ламтан нутагшжээ. XVIII зуунд хийд өргөжин хөгжиж, 1,500 гаруй лам сүсэгтэн суурьшиж, 20 орчим сүм дуган баригдсан байна. Харин 1937 оны ялгадасны үед Сталиний тушаалаар хийд галдаж, гурван зуу гаруй лам амиа алдсан цуснаас тогтсон харанхуй хуудас Монголын түүхэнд тэмдэглэгдсэн байдаг. Гэвч энэхүү ариун газрын сүнс мөнхийн — 1991 оноос эхлэн музей болж нээгдэж, өнөөдөр дэлхийн дөрвөн булангийн зочид энд эрдэм билгийн аялалдаа морилдог.
+      </div>
+ 
+      <div class="audio-progress">
+        <button class="audio-icon" id="play-btn" onclick="togglePlay()" title="Play/Pause" style="background:var(--gold);">
+          <svg id="play-icon" viewBox="0 0 24 24" fill="var(--deep)"><path d="M8 5v14l11-7z"/></svg>
+        </button>
+        <div class="progress-bar" onclick="seekAudio(event)" id="progress-bar">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        <span class="time-display" id="time-display">0:00 / 3:20</span>
+      </div>
+      <div style="margin-top:1rem; font-size:0.8rem; color:var(--text-muted); font-style:italic;">
+        <span class="lc-mn">⚠️ Аудио тоглуулах нь браузерийн дуу синтезийг ашиглана (Text-to-Speech)</span>
+        <span class="lc-en">⚠️ Audio playback uses your browser's text-to-speech engine</span>
+        <span class="lc-jp">⚠️ 音声再生にはブラウザのテキスト読み上げ機能を使用します</span>
+        <span class="lc-kr">⚠️ 오디오 재생은 브라우저의 텍스트 음성 변환 기능을 사용합니다</span>
+        <span class="lc-cn">⚠️ 音频播放使用浏览器的文字转语音引擎</span>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- EXPERIENCES -->
+<section id="experiences" class="exp-section">
+  <div style="max-width:1200px; margin:0 auto;">
+    <p class="section-eyebrow">
+      <span class="lc-mn">Аяллын туршлага</span><span class="lc-en">Experiences</span><span class="lc-jp">体験プログラム</span><span class="lc-kr">체험 프로그램</span><span class="lc-cn">体验项目</span>
+    </p>
+    <h2 class="section-title">
+      <span class="lc-mn">Та юу мэдэрч болох вэ?</span>
+      <span class="lc-en">What Will You Experience?</span>
+      <span class="lc-jp">何を体験できますか？</span>
+      <span class="lc-kr">무엇을 경험할 수 있나요?</span>
+      <span class="lc-cn">您将体验什么？</span>
+    </h2>
+    <div class="divider"></div>
+    <div class="experiences-grid">
+      <div class="exp-card">
+        <div class="exp-num">01</div>
+        <div class="exp-icon">🕯️</div>
+        <h3 class="exp-title">
+          <span class="lc-mn">Гэрэлт Дэнлүү</span><span class="lc-en">Lantern Ceremony</span><span class="lc-jp">灯籠の儀式</span><span class="lc-kr">등불 의식</span><span class="lc-cn">灯笼仪式</span>
+        </h3>
+        <p class="exp-desc">
+          <span class="lc-mn">Уламжлалт ёслолын дагуу гэрэлт дэнлүү өргөж, оюун ухаандаа гэрэл асаа.</span>
+          <span class="lc-en">Participate in a sacred lantern offering ceremony, lighting the way for wisdom and inner peace.</span>
+          <span class="lc-jp">伝統的な燈籠奉納の儀式に参加し、内なる平和と智慧の道を照らす。</span>
+          <span class="lc-kr">전통 등불 봉납 의식에 참여하여 지혜와 내면의 평화를 위한 길을 밝히세요.</span>
+          <span class="lc-cn">参与传统供灯仪式，为智慧与内心平静点亮道路。</span>
+        </p>
+      </div>
+      <div class="exp-card">
+        <div class="exp-num">02</div>
+        <div class="exp-icon">🗺️</div>
+        <h3 class="exp-title">
+          <span class="lc-mn">Эрдмийн Зам</span><span class="lc-en">Wisdom Trail</span><span class="lc-jp">知恵のスタンプラリー</span><span class="lc-kr">지혜의 길 스탬프 랠리</span><span class="lc-cn">智慧之路印章集章</span>
+        </h3>
+        <p class="exp-desc">
+          <span class="lc-mn">Хийдийн нутгаар алхаж, тамганы цуглуулга хий. Амжилтын тэмдэг авах боломжтой.</span>
+          <span class="lc-en">Walk the grounds collecting stamps at sacred sites, earning achievement badges on your wisdom journey.</span>
+          <span class="lc-jp">聖地を歩きながらスタンプを集め、智慧の旅の達成バッジを獲得しよう。</span>
+          <span class="lc-kr">성지를 걸으며 스탬프를 모으고 지혜 여행의 성취 배지를 획득하세요.</span>
+          <span class="lc-cn">漫步圣地收集印章，在智慧之旅中获得成就徽章。</span>
+        </p>
+      </div>
+      <div class="exp-card">
+        <div class="exp-num">03</div>
+        <div class="exp-icon">📱</div>
+        <h3 class="exp-title">
+          <span class="lc-mn">AR Аялал</span><span class="lc-en">AR Monastery Tour</span><span class="lc-jp">AR寺院ツアー</span><span class="lc-kr">AR 사원 투어</span><span class="lc-cn">AR寺院游览</span>
+        </h3>
+        <p class="exp-desc">
+          <span class="lc-mn">Өргөтгөсөн бодит байдлын технологиор хийдийн анхны байдлыг харж, эрэл хайгуулын тоглоом тоглоорой.</span>
+          <span class="lc-en">See the monastery restored to its 1760 glory through augmented reality, with interactive treasure hunts and quizzes.</span>
+          <span class="lc-jp">拡張現実で1760年の栄光の姿を見ながら、インタラクティブな宝探しとクイズを楽しもう。</span>
+          <span class="lc-kr">증강 현실로 1760년 전성기의 모습을 보며 인터랙티브 보물찾기와 퀴즈를 즐기세요.</span>
+          <span class="lc-cn">通过增强现实技术，看到寺院1760年鼎盛时期的面貌，并参与互动寻宝和问答活动。</span>
+        </p>
+      </div>
+      <div class="exp-card">
+        <div class="exp-num">04</div>
+        <div class="exp-icon">🧘</div>
+        <h3 class="exp-title">
+          <span class="lc-mn">Бясалгалын Талбай</span><span class="lc-en">Meditation Ground</span><span class="lc-jp">瞑想の庭</span><span class="lc-kr">명상 공간</span><span class="lc-cn">冥想空间</span>
+        </h3>
+        <p class="exp-desc">
+          <span class="lc-mn">Ойн тайван орчинд бясалгал хийж, дотоод амар амгаланг олоорой.</span>
+          <span class="lc-en">Sit in guided meditation among ancient trees, finding stillness in the forest sanctuary.</span>
+          <span class="lc-jp">古木の中で瞑想を行い、森の聖域で静寂を見つける。</span>
+          <span class="lc-kr">고목 사이에서 안내 명상을 하며 숲 성소에서 고요함을 찾으세요.</span>
+          <span class="lc-cn">在古树间进行引导冥想，在森林圣所中寻得宁静。</span>
+        </p>
+      </div>
+      <div class="exp-card">
+        <div class="exp-num">05</div>
+        <div class="exp-icon">✍️</div>
+        <h3 class="exp-title">
+          <span class="lc-mn">Тарни Сийлбэр</span><span class="lc-en">Mantra Carving</span><span class="lc-jp">マントラ彫刻</span><span class="lc-kr">만트라 조각</span><span class="lc-cn">真言雕刻</span>
+        </h3>
+        <p class="exp-desc">
+          <span class="lc-mn">Уламжлалт аргаар чулуу дээр тарни сийлбэрийг гараараа хий. Монгол бичгийн урлагийг мэдэр.</span>
+          <span class="lc-en">Hand-carve sacred mantras in stone using traditional techniques. Experience the art of Mongolian script.</span>
+          <span class="lc-jp">伝統的な技法で石に神聖なマントラを手彫りし、モンゴル文字の芸術を体験する。</span>
+          <span class="lc-kr">전통 기법으로 돌에 신성한 만트라를 직접 새기고 몽골 문자 예술을 체험하세요.</span>
+          <span class="lc-cn">用传统技法在石头上手工雕刻神圣真言，体验蒙古文字艺术。</span>
+        </p>
+      </div>
+      <div class="exp-card">
+        <div class="exp-num">06</div>
+        <div class="exp-icon">🍵</div>
+        <h3 class="exp-title">
+          <span class="lc-mn">Оюун Сэргээх Цай</span><span class="lc-en">Wisdom Tea Ceremony</span><span class="lc-jp">智慧茶の儀式</span><span class="lc-kr">지혜 차 의식</span><span class="lc-cn">智慧茶道</span>
+        </h3>
+        <p class="exp-desc">
+          <span class="lc-mn">Уламжлалт Монгол цайн ёслолыг туршиж, хийдийн түүхийг уран яруу өгүүллэгээр сонс.</span>
+          <span class="lc-en">Experience a traditional Mongolian tea ceremony paired with storytelling about the monastery's sacred history.</span>
+          <span class="lc-jp">伝統的なモンゴル茶道を体験しながら、寺院の神聖な歴史の物語に耳を傾ける。</span>
+          <span class="lc-kr">전통 몽골 차 의식을 경험하며 사원의 신성한 역사 이야기를 들으세요.</span>
+          <span class="lc-cn">体验传统蒙古茶道，聆听关于寺院神圣历史的故事。</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- GALLERY -->
+<section id="gallery" class="gallery-section">
+  <div style="max-width:1200px; margin:0 auto;">
+    <p class="section-eyebrow">
+      <span class="lc-mn">Хийдийн орчин</span><span class="lc-en">Gallery</span><span class="lc-jp">ギャラリー</span><span class="lc-kr">갤러리</span><span class="lc-cn">相册</span>
+    </p>
+    <h2 class="section-title">
+      <span class="lc-mn">Хийдийн орчин</span>
+      <span class="lc-en">Through the Lens of Manzushir</span>
+      <span class="lc-jp">マンズシルのレンズ越しに</span>
+      <span class="lc-kr">만주시르의 렌즈를 통해</span>
+      <span class="lc-cn">曼殊寺的影像</span>
+    </h2>
+    <div class="divider"></div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="photos/uzemj4.png" alt="Хийдийн харагдац">
+        <div class="gallery-label">
+          <span class="lc-mn">Хийдийн харагдац</span><span class="lc-en">Monastery View</span><span class="lc-jp">寺院の眺め</span><span class="lc-kr">사원 전망</span><span class="lc-cn">寺院全景</span>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="photos/huuchinmanzushir2.jpg" alt="Манзушир">
+        <div class="gallery-label">
+          <span class="lc-mn">Хуучин Манзушир</span><span class="lc-en">Historical Manzushir</span><span class="lc-jp">歴史的なマンズシル</span><span class="lc-kr">역사적 만주시르</span><span class="lc-cn">历史曼殊寺</span>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="photos/khiidiintuuri3.png" alt="Хийдийн туурь">
+        <div class="gallery-label">
+          <span class="lc-mn">Хийдийн дэлгэрэнгүй</span><span class="lc-en">Temple Detail</span><span class="lc-jp">寺院の詳細</span><span class="lc-kr">사원 세부</span><span class="lc-cn">寺院细节</span>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="photos/togoo7.jpeg" alt="3000 жилийн настай тогоо">
+        <div class="gallery-label">
+          <span class="lc-mn">3000 жилийн настай тогоо</span><span class="lc-en">3000-Year-Old Cauldron</span><span class="lc-jp">3000年の大釜</span><span class="lc-kr">3000년 된 가마솥</span><span class="lc-cn">3000年历史铁锅</span>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="photos/muzei6.jpg" alt="Манзушир музей">
+        <div class="gallery-label">
+          <span class="lc-mn">Манзушир музей</span><span class="lc-en">Manzushir Museum</span><span class="lc-jp">マンズシル博物館</span><span class="lc-kr">만주시르 박물관</span><span class="lc-cn">曼殊寺博物馆</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- PLAN YOUR VISIT -->
+<section id="visit" class="plan-section">
+  <div style="max-width:1200px; margin:0 auto;">
+    <p class="section-eyebrow">
+      <span class="lc-mn">Аяллаа төлөвлөх</span><span class="lc-en">Plan Your Visit</span><span class="lc-jp">訪問を計画する</span><span class="lc-kr">방문 계획</span><span class="lc-cn">规划您的参观</span>
+    </p>
+    <h2 class="section-title">
+      <span class="lc-mn">Бүх шаардлагатай мэдээлэл</span>
+      <span class="lc-en">Everything You Need to Know</span>
+      <span class="lc-jp">必要な情報すべて</span>
+      <span class="lc-kr">필요한 모든 정보</span>
+      <span class="lc-cn">您需要知道的一切</span>
+    </h2>
+    <div class="divider"></div>
+    <div class="plan-grid">
+      <div class="plan-card">
+        <h3>
+          🚗 <span class="lc-mn">Хэрхэн хүрэх вэ</span><span class="lc-en">Getting Here</span><span class="lc-jp">アクセス</span><span class="lc-kr">오시는 방법</span><span class="lc-cn">如何到达</span>
+        </h3>
+        <ul class="plan-card">
+          <li><span class="lc-mn">УБ хотоос 42 км</span><span class="lc-en">42 km from UB city</span><span class="lc-jp">ウランバートルから42km</span><span class="lc-kr">울란바토르에서 42km</span><span class="lc-cn">距乌兰巴托42公里</span></li>
+          <li><span class="lc-mn">Автомашин: 45-60 мин</span><span class="lc-en">By car: 45–60 min</span><span class="lc-jp">車で45〜60分</span><span class="lc-kr">자동차로 45-60분</span><span class="lc-cn">驾车45-60分钟</span></li>
+          <li><span class="lc-mn">Маршрут такси боломжтой</span><span class="lc-en">Shared taxi available</span><span class="lc-jp">乗合タクシー利用可</span><span class="lc-kr">합승 택시 이용 가능</span><span class="lc-cn">可乘坐合乘出租车</span></li>
+        </ul>
+      </div>
+      <div class="plan-card">
+        <h3>
+          🎫 <span class="lc-mn">Тасалбарын үнэ</span><span class="lc-en">Entrance Fees</span><span class="lc-jp">入場料</span><span class="lc-kr">입장료</span><span class="lc-cn">门票价格</span>
+        </h3>
+        <ul>
+          <li><span class="lc-mn">Монгол иргэн: 3,000₮</span><span class="lc-en">Mongolian citizen: 3,000₮</span><span class="lc-jp">モンゴル市民: 3,000₮</span><span class="lc-kr">몽골 시민: 3,000₮</span><span class="lc-cn">蒙古公民: 3,000₮</span></li>
+          <li><span class="lc-mn">Гадаад иргэн: 10,000₮</span><span class="lc-en">Foreign visitor: 10,000₮</span><span class="lc-jp">外国人観光客: 10,000₮</span><span class="lc-kr">외국인 방문객: 10,000₮</span><span class="lc-cn">外国游客: 10,000₮</span></li>
+          <li><span class="lc-mn">Тээврийн хэрэгсэл: 2,000₮</span><span class="lc-en">Vehicle fee: 2,000₮</span><span class="lc-jp">車両料金: 2,000₮</span><span class="lc-kr">차량 요금: 2,000₮</span><span class="lc-cn">车辆费用: 2,000₮</span></li>
+        </ul>
+      </div>
+      <div class="plan-card">
+        <h3>
+          🕐 <span class="lc-mn">Ажиллах цаг</span><span class="lc-en">Opening Hours</span><span class="lc-jp">開館時間</span><span class="lc-kr">운영 시간</span><span class="lc-cn">开放时间</span>
+        </h3>
+        <ul>
+          <li><span class="lc-mn">5-р сарын 1 — 10-р сарын 31</span><span class="lc-en">1 May — 31 October</span><span class="lc-jp">5月1日〜10月31日</span><span class="lc-kr">5월 1일 — 10월 31일</span><span class="lc-cn">5月1日 — 10月31日</span></li>
+          <li><span class="lc-mn">Өдөр бүр: 09:00–18:00</span><span class="lc-en">Daily: 09:00–18:00</span><span class="lc-jp">毎日: 9:00〜18:00</span><span class="lc-kr">매일: 09:00–18:00</span><span class="lc-cn">每日: 09:00–18:00</span></li>
+        </ul>
+      </div>
+      <div class="plan-card">
+        <h3>
+          📋 <span class="lc-mn">Зочдын дүрэм</span><span class="lc-en">Visitor Rules</span><span class="lc-jp">訪問者ルール</span><span class="lc-kr">방문객 규정</span><span class="lc-cn">游客须知</span>
+        </h3>
+        <ul>
+          <li><span class="lc-mn">Хог хаяхгүй байх</span><span class="lc-en">No littering</span><span class="lc-jp">ゴミを捨てない</span><span class="lc-kr">쓰레기 투기 금지</span><span class="lc-cn">禁止乱扔垃圾</span></li>
+          <li><span class="lc-mn">Гал гаргахгүй байх</span><span class="lc-en">No open fires</span><span class="lc-jp">火気厳禁</span><span class="lc-kr">화기 사용 금지</span><span class="lc-cn">禁止明火</span></li>
+          <li><span class="lc-mn">Ургамал цуглуулахгүй байх</span><span class="lc-en">No plant collection</span><span class="lc-jp">植物の採取禁止</span><span class="lc-kr">식물 채집 금지</span><span class="lc-cn">禁止采集植物</span></li>
+        </ul>
+      </div>
+      <div class="plan-card" style="grid-column: span 2;">
+        <h3>
+          🗺️ <span class="lc-mn">Санал болгох маршрутууд</span><span class="lc-en">Suggested Routes</span><span class="lc-jp">おすすめルート</span><span class="lc-kr">추천 코스</span><span class="lc-cn">推荐路线</span>
+        </h3>
+        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-top:0.75rem;">
+          <div style="padding:1rem; border:0.5px solid var(--border); text-align:center;">
+            <div style="font-family:'Cinzel',serif; color:var(--gold); font-size:0.75rem; margin-bottom:0.5rem;">
+              <span class="lc-mn">1 цагийн маршрут</span><span class="lc-en">1-Hour Route</span><span class="lc-jp">1時間コース</span><span class="lc-kr">1시간 코스</span><span class="lc-cn">1小时路线</span>
+            </div>
+            <p style="font-size:0.8rem; color:var(--text-muted);">
+              <span class="lc-mn">Музей → Үндсэн сүм → Харагдац</span>
+              <span class="lc-en">Museum → Main temple → Viewpoint</span>
+              <span class="lc-jp">博物館→本堂→展望台</span>
+              <span class="lc-kr">박물관→본당→전망대</span>
+              <span class="lc-cn">博物馆→主殿→观景台</span>
+            </p>
+          </div>
+          <div style="padding:1rem; border:1px solid var(--gold); text-align:center; background:rgba(201,168,76,0.04);">
+            <div style="font-family:'Cinzel',serif; color:var(--gold); font-size:0.75rem; margin-bottom:0.5rem;">
+              <span class="lc-mn">Хагас өдрийн маршрут</span><span class="lc-en">Half-Day Route</span><span class="lc-jp">半日コース</span><span class="lc-kr">반나절 코스</span><span class="lc-cn">半日路线</span>
+            </div>
+            <p style="font-size:0.8rem; color:var(--text-muted);">
+              <span class="lc-mn">Эрдмийн зам + AR аялал + Цайны ёслол</span>
+              <span class="lc-en">Wisdom Trail + AR Tour + Tea Ceremony</span>
+              <span class="lc-jp">知恵の道+ARツアー+茶道</span>
+              <span class="lc-kr">지혜의 길+AR투어+차 의식</span>
+              <span class="lc-cn">智慧之路+AR游览+茶道</span>
+            </p>
+          </div>
+          <div style="padding:1rem; border:0.5px solid var(--border); text-align:center;">
+            <div style="font-family:'Cinzel',serif; color:var(--gold); font-size:0.75rem; margin-bottom:0.5rem;">
+              <span class="lc-mn">Бүтэн өдрийн маршрут</span><span class="lc-en">Full-Day Route</span><span class="lc-jp">終日コース</span><span class="lc-kr">하루 코스</span><span class="lc-cn">全日路线</span>
+            </div>
+            <p style="font-size:0.8rem; color:var(--text-muted);">
+              <span class="lc-mn">Бүх туршлага + Бясалгал + Уулын авиралт</span>
+              <span class="lc-en">All experiences + Meditation + Mountain hike</span>
+              <span class="lc-jp">全体験+瞑想+山ハイキング</span>
+              <span class="lc-kr">모든 체험+명상+산행</span>
+              <span class="lc-cn">全体验+冥想+登山徒步</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ECO TOURISM -->
+<section id="eco" class="eco-section">
+  <div style="max-width:1000px; margin:0 auto;">
+    <p class="section-eyebrow">
+      <span class="lc-mn">Тогтвортой аялал</span><span class="lc-en">Eco Tourism</span><span class="lc-jp">エコツーリズム</span><span class="lc-kr">에코 투어리즘</span><span class="lc-cn">生态旅游</span>
+    </p>
+    <h2 class="section-title">
+      <span class="lc-mn">Байгальтай зохицон аялах</span>
+      <span class="lc-en">Travel in Harmony with Nature</span>
+      <span class="lc-jp">自然と調和した旅</span>
+      <span class="lc-kr">자연과 조화를 이루는 여행</span>
+      <span class="lc-cn">与自然和谐共处的旅行</span>
+    </h2>
+    <div class="divider"></div>
+    <div class="eco-grid">
+      <div>
+        <p style="font-size:0.95rem; color:var(--cream2); line-height:1.9; margin-bottom:1.5rem;">
+          <span class="lc-mn">Манзушир хийд нь байгаль орчинд ээлтэй аялал жуулчлалын зарчмыг баримталдаг. Богд Хан уулын өвөрмөц экосистемийг хамгаалж, ирэх үеийнхэнд өвлүүлэн үлдээхийн тулд бид хариуцлагатай ажлыг тасралтгүй хийж байна.</span>
+          <span class="lc-en">Manzushir embraces eco-tourism principles to protect the unique ecosystem of Bogd Khan Mountain for future generations through responsible, sustainable practices.</span>
+          <span class="lc-jp">マンズシルはエコツーリズムの原則を取り入れ、持続可能な取り組みにより、未来の世代のためにボグドハーン山の独自の生態系を守っています。</span>
+          <span class="lc-kr">만주시르는 지속 가능한 방법으로 미래 세대를 위해 보그드 칸 산의 독특한 생태계를 보호하기 위해 에코투어리즘 원칙을 채택합니다.</span>
+          <span class="lc-cn">曼殊寺践行生态旅游原则，通过负责任的可持续做法，为子孙后代保护博格达汗山独特的生态系统。</span>
+        </p>
+        <ul class="eco-list">
+          <li>
+            <div>
+              <div style="font-family:'Cinzel',serif; font-size:0.8rem; color:var(--gold); margin-bottom:0.2rem;">
+                <span class="lc-mn">Нарны эрчим хүч</span><span class="lc-en">Solar Energy</span><span class="lc-jp">太陽エネルギー</span><span class="lc-kr">태양에너지</span><span class="lc-cn">太阳能</span>
+              </div>
+              <div style="font-size:0.85rem; color:var(--text-muted);">
+                <span class="lc-mn">100% нарны эрчим хүчийг ашигладаг</span>
+                <span class="lc-en">100% solar-powered lighting and facilities</span>
+                <span class="lc-jp">照明と施設に100%太陽光発電を使用</span>
+                <span class="lc-kr">100% 태양광 조명 및 시설 운영</span>
+                <span class="lc-cn">100%太阳能照明及设施</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div style="font-family:'Cinzel',serif; font-size:0.8rem; color:var(--gold); margin-bottom:0.2rem;">
+                <span class="lc-mn">Хог хаягдлын менежмент</span><span class="lc-en">Zero Waste System</span><span class="lc-jp">ゼロウェイスト</span><span class="lc-kr">제로 웨이스트</span><span class="lc-cn">零废弃物系统</span>
+              </div>
+              <div style="font-size:0.85rem; color:var(--text-muted);">
+                <span class="lc-mn">Хуванцрыг хориглосон, нунтаглалт систем</span>
+                <span class="lc-en">No single-use plastics, composting & recycling</span>
+                <span class="lc-jp">使い捨てプラスチック禁止、堆肥化・リサイクル</span>
+                <span class="lc-kr">일회용 플라스틱 금지, 퇴비화 및 재활용</span>
+                <span class="lc-cn">禁止一次性塑料，堆肥与回收</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div style="font-family:'Cinzel',serif; font-size:0.8rem; color:var(--gold); margin-bottom:0.2rem;">
+                <span class="lc-mn">Амьтан хамгаалал</span><span class="lc-en">Wildlife Protection</span><span class="lc-jp">野生生物の保護</span><span class="lc-kr">야생동물 보호</span><span class="lc-cn">野生动物保护</span>
+              </div>
+              <div style="font-size:0.85rem; color:var(--text-muted);">
+                <span class="lc-mn">Ховор амьтад, ургамалыг хамгаалах хөтөлбөр</span>
+                <span class="lc-en">Programs protecting rare species in Bogd Khan reserve</span>
+                <span class="lc-jp">ボグドハーン保護区の希少種保護プログラム</span>
+                <span class="lc-kr">보그드 칸 보호구역 희귀 종 보호 프로그램</span>
+                <span class="lc-cn">博格达汗保护区珍稀物种保护项目</span>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div style="position:relative;">
+        <img src="photos/bogdkhanuul8.jpg"
+             onerror="this.style.background='#1C2E1A'"
+             alt="Bogd Khan nature"
+             style="width:100%; height:100%; min-height:350px; object-fit:cover; border:1px solid var(--border); filter:brightness(0.7) saturate(0.9);">
+        <div style="position:absolute; bottom:0; left:0; right:0; padding:1.5rem; background:linear-gradient(transparent, rgba(13,13,11,0.9));">
+          <div style="font-family:'Cinzel',serif; font-size:0.7rem; color:var(--gold); letter-spacing:0.2em; margin-bottom:0.3rem;">UNESCO</div>
+          <div style="font-size:0.85rem; color:var(--cream2);">
+            <span class="lc-mn">Богд Хан Уул — 1778 оноос хамгаалагдсан</span>
+            <span class="lc-en">Bogd Khan Mountain — protected since 1778</span>
+            <span class="lc-jp">ボグドハーン山 — 1778年より保護</span>
+            <span class="lc-kr">보그드 칸 산 — 1778년부터 보호</span>
+            <span class="lc-cn">博格达汗山 — 自1778年起受保护</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- SHOP -->
+<section id="shop" class="shop-section">
+  <div style="max-width:1200px; margin:0 auto;">
+    <p class="section-eyebrow">
+      <span class="lc-mn">Сувинер дэлгүүр</span><span class="lc-en">Souvenir Shop</span><span class="lc-jp">おみやげショップ</span><span class="lc-kr">기념품 가게</span><span class="lc-cn">纪念品商店</span>
+    </p>
+    <h2 class="section-title">
+      <span class="lc-mn">Дурсамжаа авч яв</span>
+      <span class="lc-en">Take a Memory Home</span>
+      <span class="lc-jp">思い出を持ち帰ろう</span>
+      <span class="lc-kr">추억을 가져가세요</span>
+      <span class="lc-cn">带走一份纪念</span>
+    </h2>
+    <div class="divider"></div>
+    <div class="shop-grid">
+      <div class="shop-item">
+        <span class="shop-icon">🃏</span>
+        <div class="shop-name"><span class="lc-mn">Оюуны карт</span><span class="lc-en">Wisdom Cards</span><span class="lc-jp">智慧カード</span><span class="lc-kr">지혜 카드</span><span class="lc-cn">智慧卡</span></div>
+        <div class="shop-sub"><span class="lc-mn">Буддын сургаалтай</span><span class="lc-en">Buddhist teachings</span><span class="lc-jp">仏陀の教え</span><span class="lc-kr">불교 가르침</span><span class="lc-cn">佛教教义</span></div>
+      </div>
+      <div class="shop-item">
+        <span class="shop-icon">📱</span>
+        <div class="shop-name"><span class="lc-mn">AR сувинер</span><span class="lc-en">AR Souvenirs</span><span class="lc-jp">ARお土産</span><span class="lc-kr">AR 기념품</span><span class="lc-cn">AR纪念品</span></div>
+        <div class="shop-sub"><span class="lc-mn">Цахим хийд</span><span class="lc-en">Digital monastery</span><span class="lc-jp">デジタル寺院</span><span class="lc-kr">디지털 사원</span><span class="lc-cn">数字寺院</span></div>
+      </div>
+      <div class="shop-item">
+        <span class="shop-icon">🔖</span>
+        <div class="shop-name"><span class="lc-mn">Номын хавчаар</span><span class="lc-en">Bookmarks</span><span class="lc-jp">しおり</span><span class="lc-kr">책갈피</span><span class="lc-cn">书签</span></div>
+        <div class="shop-sub"><span class="lc-mn">Монгол бичгийн</span><span class="lc-en">Mongolian script</span><span class="lc-jp">モンゴル文字</span><span class="lc-kr">몽골 문자</span><span class="lc-cn">蒙古文字</span></div>
+      </div>
+      <div class="shop-item">
+        <span class="shop-icon">🏺</span>
+        <div class="shop-name"><span class="lc-mn">Гар урлал</span><span class="lc-en">Handmade Crafts</span><span class="lc-jp">手工芸品</span><span class="lc-kr">수공예품</span><span class="lc-cn">手工艺品</span></div>
+        <div class="shop-sub"><span class="lc-mn">Уламжлалт</span><span class="lc-en">Traditional art</span><span class="lc-jp">伝統工芸</span><span class="lc-kr">전통 공예</span><span class="lc-cn">传统艺术</span></div>
+      </div>
+      <div class="shop-item">
+        <span class="shop-icon">☸️</span>
+        <div class="shop-name"><span class="lc-mn">Шашны бэлэг</span><span class="lc-en">Spiritual Gifts</span><span class="lc-jp">精神的な贈り物</span><span class="lc-kr">영적 선물</span><span class="lc-cn">灵性礼品</span></div>
+        <div class="shop-sub"><span class="lc-mn">Тарни, зурмал</span><span class="lc-en">Mantras & thangka</span><span class="lc-jp">真言とタンカ</span><span class="lc-kr">만트라와 탕카</span><span class="lc-cn">真言与唐卡</span></div>
+      </div>
+      <div class="shop-item" style="border-color:var(--gold); background:rgba(201,168,76,0.05);">
+        <span class="shop-icon">🛒</span>
+        <div class="shop-name" style="color:var(--gold);">
+          <span class="lc-mn">Онлайн захиалга</span><span class="lc-en">Online Order</span><span class="lc-jp">オンライン注文</span><span class="lc-kr">온라인 주문</span><span class="lc-cn">在线订购</span>
+        </div>
+        <div class="shop-sub">
+          <span class="lc-mn">Тун удахгүй</span><span class="lc-en">Coming soon</span><span class="lc-jp">近日公開</span><span class="lc-kr">출시 예정</span><span class="lc-cn">即将推出</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div style="max-width:1200px; margin:0 auto;">
+    <p class="section-eyebrow">
+      <span class="lc-mn">Холбоо барих</span><span class="lc-en">Contact Us</span><span class="lc-jp">お問い合わせ</span><span class="lc-kr">연락처</span><span class="lc-cn">联系我们</span>
+    </p>
+    <h2 class="section-title">
+      <span class="lc-mn">Бидэнтэй холбогдох</span>
+      <span class="lc-en">Get in Touch</span>
+      <span class="lc-jp">ご連絡ください</span>
+      <span class="lc-kr">연락하기</span>
+      <span class="lc-cn">与我们联系</span>
+    </h2>
+    <div class="divider"></div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p>📍 <span class="lc-mn">Богд Хан уулын байгалийн цогцолборт газар, Монгол Улс</span><span class="lc-en">Bogd Khan Mountain Nature Reserve, Mongolia</span><span class="lc-jp">ボグドハーン山自然保護区、モンゴル</span><span class="lc-kr">보그드 칸 산 자연보호구역, 몽골</span><span class="lc-cn">蒙古国博格达汗山自然保护区</span></p>
+        <p>📞 +976 9911 xxxx</p>
+        <p>✉️ info@manzushir.mn</p>
+        <p>🌐 www.manzushir.mn</p>
+        <div style="margin-top:2rem;">
+          <h3 style="font-family:'Cinzel',serif; font-size:0.75rem; color:var(--gold); letter-spacing:0.2em; text-transform:uppercase; margin-bottom:1rem;">
+            <span class="lc-mn">Сошиал медиа</span><span class="lc-en">Social Media</span><span class="lc-jp">SNS</span><span class="lc-kr">소셜 미디어</span><span class="lc-cn">社交媒体</span>
+          </h3>
+          <div class="social-links" style="flex-wrap:wrap; gap:0.75rem;">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">TikTok</a>
+            <a href="#">YouTube</a>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form">
+        <input type="text" placeholder="Таны нэр / Your name / お名前 / 이름 / 您的姓名">
+        <input type="email" placeholder="И-мэйл / Email">
+        <select style="appearance:none; -webkit-appearance:none; cursor:pointer;">
+          <option>
+            <span class="lc-mn">Сэдэв сонгох</span>
+          </option>
+          <option>Аяллын мэдээлэл / Visit Information</option>
+          <option>Захиалга / Booking</option>
+          <option>Ерөнхий асуулт / General Inquiry</option>
+        </select>
+        <textarea placeholder="Таны мэдэгдэл / Your message / メッセージ / 메시지 / 留言"></textarea>
+        <button class="btn-primary" style="width:100%; padding:1rem; border:none; cursor:pointer; font-size:0.8rem;">
+          <span class="lc-mn">Илгээх</span><span class="lc-en">Send Message</span><span class="lc-jp">送信する</span><span class="lc-kr">전송</span><span class="lc-cn">发送</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="logo">᠊ <span class="lc-mn">МАНЗУШИР ХИЙД</span><span class="lc-en">MANZUSHIR MONASTERY</span><span class="lc-jp">マンズシル寺院</span><span class="lc-kr">만주시르 사원</span><span class="lc-cn">曼殊寺</span></a>
+      <p>
+        <span class="lc-mn">Оюун билгийн аялал — Богд Хан уулын энгэрт</span>
+        <span class="lc-en">A journey of wisdom on the slopes of Bogd Khan Mountain, Mongolia.</span>
+        <span class="lc-jp">ボグドハーン山の麓での智慧の旅。</span>
+        <span class="lc-kr">보그드 칸 산 기슭에서의 지혜의 여행.</span>
+        <span class="lc-cn">博格达汗山脚下的智慧之旅。</span>
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4><span class="lc-mn">Аялал</span><span class="lc-en">Explore</span><span class="lc-jp">探索</span><span class="lc-kr">탐색</span><span class="lc-cn">探索</span></h4>
+      <ul>
+        <li><a href="#about"><span class="lc-mn">Бидний тухай</span><span class="lc-en">About</span><span class="lc-jp">概要</span><span class="lc-kr">소개</span><span class="lc-cn">关于</span></a></li>
+        <li><a href="#experiences"><span class="lc-mn">Туршлага</span><span class="lc-en">Experiences</span><span class="lc-jp">体験</span><span class="lc-kr">경험</span><span class="lc-cn">体验</span></a></li>
+        <li><a href="#gallery"><span class="lc-mn">Галерей</span><span class="lc-en">Gallery</span><span class="lc-jp">ギャラリー</span><span class="lc-kr">갤러리</span><span class="lc-cn">相册</span></a></li>
+        <li><a href="#eco"><span class="lc-mn">Экотуризм</span><span class="lc-en">Eco Tourism</span><span class="lc-jp">エコツーリズム</span><span class="lc-kr">에코투어</span><span class="lc-cn">生态旅游</span></a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4><span class="lc-mn">Аялал</span><span class="lc-en">Visit</span><span class="lc-jp">訪問</span><span class="lc-kr">방문</span><span class="lc-cn">参观</span></h4>
+      <ul>
+        <li><a href="#visit"><span class="lc-mn">Хэрхэн хүрэх</span><span class="lc-en">Getting Here</span><span class="lc-jp">アクセス</span><span class="lc-kr">오시는 길</span><span class="lc-cn">交通</span></a></li>
+        <li><a href="#visit"><span class="lc-mn">Тасалбар</span><span class="lc-en">Tickets</span><span class="lc-jp">チケット</span><span class="lc-kr">입장권</span><span class="lc-cn">门票</span></a></li>
+        <li><a href="#shop"><span class="lc-mn">Дэлгүүр</span><span class="lc-en">Shop</span><span class="lc-jp">ショップ</span><span class="lc-kr">쇼핑</span><span class="lc-cn">商店</span></a></li>
+        <li><a href="#contact"><span class="lc-mn">Холбоо</span><span class="lc-en">Contact</span><span class="lc-jp">連絡</span><span class="lc-kr">연락처</span><span class="lc-cn">联系</span></a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4><span class="lc-mn">Холбоос</span><span class="lc-en">Links</span><span class="lc-jp">リンク</span><span class="lc-kr">링크</span><span class="lc-cn">链接</span></h4>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Use</a></li>
+        <li><a href="#">Sitemap</a></li>
+        <li><a href="#">Press</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Манзушир Хийд. All rights reserved.</span>
+    <div class="social-links">
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">TikTok</a>
+      <a href="#">YouTube</a>
+    </div>
+  </div>
+</footer>
+<audio id="history-audio" src="audio/history-mn.mp3" preload="auto"></audio>
+<script>
+// ─── LANGUAGE SWITCH ───
+function setLang(lang) {
+  document.body.className = 'lang-' + lang;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector('.lang-btn[onclick="setLang(\'' + lang + '\')"]').classList.add('active');
+  document.documentElement.lang = lang === 'jp' ? 'ja' : lang === 'kr' ? 'ko' : lang === 'cn' ? 'zh' : lang;
+  currentAudioLang = lang;
+}
+
+// ─── AUDIO TEXTS ───
+const audioTexts = {
+  mn: `Богд хан уул нь Монгол Улсын түүх, байгалийн нөөцийн хувьд онцгой ач холбогдолтой газар бөгөөд дэлхийн анхны дархан цаазат уулын статустай 1783 оноос эхлэн хамгаалалтад авсан газар юм.Улсын төв архивын албан баримтад 12-13 дугаар зууны үед Хэрэйд аймгийн Ван хаан Тоорил Богд хан уулыг тахиж, Туулын хар шугуйгаар нутаглаж байхдаа "Унасан газар угаасан усаа" гэх монгол хүний сэтгэлээр өөрийн эрх хэмжээнд онголон дархалсан түүхтэй.Манзушир гэдэг нь "Оюун билгийн тэнгэрийг сахих бурхан" гэсэн утгатай. "Тухайн үедээ 20 дуган, 300 гаруй лам нартай, хийд нь шашин, соёл, боловсролын томоохон төв байсан." Манзушир хийдийн анхны сүмийг Манзушир ламтны анхдугаар дүрийн хувилгаан Лувсанжамбалданзан 1733 онд Богд хан уулын энгэрт бариулснаар Манзуширын хийдийн суурь тавигджээ. 200 гаруй жилийн түүхтэй Манзуширын хийдийг 1937 онд нураан буулгах үед 21 барилга байгууламжтай байжээ. Хийдийн сүүлчийн хутагт Цэрэндорж тэргүүтэй нэр бүхий 50 гаруй ламыг баривчлан 1937 онд цаазалжээ.`,
+  en: `Manzushir Monastery was founded in 1733 at the foot of Bogdkhan Mountain and became one of the most important Buddhist monasteries in Mongolia. Its name derives from Mañjuśrī, the Bodhisattva of wisdom. "At its peak, the monastery housed over 300 monks across 20 temples, serving as a major center of religion, culture, and education." In 1937, during the Stalinist purges, the monastery was completely destroyed and most of its monks were executed or imprisoned on false charges. Only one temple survived, preserved as a museum.`,
+  jp: `マンズシル寺院は1733年にボグドハーン山のふもとに創建され、モンゴル仏教の最も重要な寺院のひとつとなりました。寺院の名前は知恵の菩薩・文殊菩薩（マンジュシュリー）に由来しています。「最盛期には20の寺殿に300人以上の僧侶が暮らし、宗教・文化・教育の重要な中心地として栄えました。」1937年、スターリン主義の粛清の中で寺院は完全に破壊され、多くの僧侶が処刑または投獄されました。一つの仏殿のみが博物館として保存されています。`,
+  kr: `만주시르 사원은 1733년 복드한 산 기슭에 세워졌으며, 몽골 불교에서 가장 중요한 사원 중 하나가 되었습니다. 사원의 이름은 지혜의 보살인 문수보살(만주슈리)에서 유래했습니다. "전성기에는 20개의 법당에 300명 이상의 승려가 거주하며 종교, 문화, 교육의 주요 중심지로 번성했습니다." 1937년 스탈린주의 탄압 기간에 사원은 완전히 파괴되었고 대부분의 승려들이 처형되거나 투옥되었습니다. 단 하나의 법당만이 박물관으로 보존되어 남아 있습니다.`,
+  cn: `满珠希礼寺建于1733年，坐落于博格达汗山脚下，是蒙古最重要的佛教寺院之一。寺院名称来源于智慧菩萨文殊菩萨（曼殊室利）。"鼎盛时期，寺院拥有20座庙宇和300余名喇嘛，是宗教、文化和教育的重要中心。"1937年，在斯大林主义镇压期间，寺院被彻底摧毁，大多数喇嘛遭到处决或以莫须有的罪名入狱。仅有一座庙宇作为博物馆保存至今。`
+};
+
+let currentAudioLang = 'mn';
+let isPlaying = false;
+let progressInterval = null;
+let elapsed = 0;
+let totalDuration = 200;
+
+const player = document.getElementById('history-audio');
+
+// ─── SWITCH AUDIO LANGUAGE ───
+function switchAudioLang(lang, btn) {
+  // МН mp3 зогсооно
+  player.pause();
+  player.currentTime = 0;
+  // TTS зогсооно
+  window.speechSynthesis.cancel();
+  clearInterval(progressInterval);
+
+  isPlaying = false;
+  elapsed = 0;
+  updateProgress();
+  document.getElementById('play-icon').innerHTML = '<path d="M8 5v14l11-7z"/>';
+
+  currentAudioLang = lang;
+  document.getElementById('audio-text').textContent = audioTexts[lang];
+  document.querySelectorAll('.audio-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// ─── PLAY / PAUSE ───
+function togglePlay() {
+  if (isPlaying) {
+    if (currentAudioLang === 'mn') {
+      player.pause();
+    } else {
+      window.speechSynthesis.cancel();
+    }
+    isPlaying = false;
+    clearInterval(progressInterval);
+    document.getElementById('play-icon').innerHTML = '<path d="M8 5v14l11-7z"/>';
+  } else {
+    if (currentAudioLang === 'mn') {
+      player.play();
+    } else {
+      const utt = new SpeechSynthesisUtterance(audioTexts[currentAudioLang]);
+      utt.lang = { en:'en-US', jp:'ja-JP', kr:'ko-KR', cn:'zh-CN' }[currentAudioLang];
+      utt.rate = 0.9;
+      utt.onend = () => {
+        isPlaying = false;
+        clearInterval(progressInterval);
+        elapsed = 0;
+        updateProgress();
+        document.getElementById('play-icon').innerHTML = '<path d="M8 5v14l11-7z"/>';
+      };
+      window.speechSynthesis.speak(utt);
+      progressInterval = setInterval(() => {
+        elapsed = Math.min(elapsed + 1, totalDuration);
+        updateProgress();
+      }, 1000);
+    }
+    isPlaying = true;
+    document.getElementById('play-icon').innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
+  }
+}
+
+// ─── MP3 EVENTS ───
+player.addEventListener('timeupdate', () => {
+  elapsed = Math.floor(player.currentTime);
+  totalDuration = Math.floor(player.duration) || 200;
+  updateProgress();
+});
+
+player.addEventListener('ended', () => {
+  isPlaying = false;
+  elapsed = 0;
+  updateProgress();
+  document.getElementById('play-icon').innerHTML = '<path d="M8 5v14l11-7z"/>';
+});
+
+// ─── PROGRESS BAR ───
+function seekAudio(e) {
+  const bar = document.getElementById('progress-bar');
+  const rect = bar.getBoundingClientRect();
+  const ratio = (e.clientX - rect.left) / rect.width;
+  elapsed = Math.round(ratio * totalDuration);
+  updateProgress();
+}
+
+function updateProgress() {
+  const pct = (elapsed / totalDuration) * 100;
+  document.getElementById('progress-fill').style.width = pct + '%';
+  const mins = Math.floor(elapsed / 60);
+  const secs = elapsed % 60;
+  const tMins = Math.floor(totalDuration / 60);
+  const tSecs = totalDuration % 60;
+  document.getElementById('time-display').textContent =
+    `${mins}:${secs.toString().padStart(2,'0')} / ${tMins}:${tSecs.toString().padStart(2,'0')}`;
+}
+
+// ─── SMOOTH SCROLL ───
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+  });
+});
+</script>
+</body>
+</html>
