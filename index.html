@@ -397,7 +397,7 @@
     max-width:1200px;
     margin: 2rem auto 0;
   }
-.exp-card {
+  .exp-card {
     border: 0.5px solid var(--border);
     background: var(--stone);
     padding: 2rem;
@@ -406,28 +406,11 @@
     transition: border-color 0.3s, transform 0.3s;
     cursor: default;
   }
-.exp-card::before {
-    content:'';
-    position:absolute; inset:0;
-    background-size: cover;
-    background-position: center;
-    opacity: 0.08;
-    transition: opacity 0.3s;
-    z-index: 0;
-  }
-.exp-card:hover::before { opacity: 0.18; }
-.exp-card > * { position: relative; z-index: 1; }
-.exp-card:nth-child(1)::before { background-image: url('photos/denluu.png'); }
-.exp-card:nth-child(2)::before { background-image: url('photos/stamp.png'); }
-.exp-card:nth-child(3)::before { background-image: url('photos/ar_aylal.png'); }
-.exp-card:nth-child(4)::before { background-image: url('photos/bysalgal.png'); }
-.exp-card:nth-child(5)::before { background-image: url('photos/siilber.png'); }
-.exp-card:nth-child(6)::before { background-image: url('photos/tsai.png'); }
-.exp-card:hover {
+  .exp-card:hover {
     border-color: var(--gold);
     transform: translateY(-4px);
   }
-.exp-num {
+  .exp-num {
     font-family:'Cinzel',serif;
     font-size:2.5rem;
     color: rgba(201,168,76,0.12);
@@ -435,17 +418,28 @@
     line-height:1;
     user-select:none;
   }
-.exp-icon {
+  .exp-icon {
     font-size:1.8rem; margin-bottom:1rem;
   }
-.exp-title {
+  .exp-title {
     font-family:'Cinzel',serif;
     font-size:1rem;
     color: var(--gold);
     margin-bottom:0.5rem;
     letter-spacing:0.05em;
   }
-.exp-desc { font-size:0.9rem; color: var(--text-muted); line-height:1.7; }
+  .exp-desc { font-size:0.9rem; color: var(--text-muted); line-height:1.7; }
+ 
+  /* GALLERY */
+  .gallery-section { background: var(--deep); }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 280px 220px;
+    gap: 8px;
+    max-width:1200px;
+    margin: 2rem auto 0;
+  }
   .gallery-item {
     overflow:hidden;
     position:relative;
@@ -682,7 +676,7 @@
     <li><a href="#gallery"><span class="lc-mn">ГАЛЕРЕЙ</span><span class="lc-en">GALLERY</span><span class="lc-jp">ギャラリー</span><span class="lc-kr">갤러리</span><span class="lc-cn">相册</span></a></li>
     <li><a href="#visit"><span class="lc-mn">АЯЛЛАА ТӨЛӨВЛӨХ</span><span class="lc-en">PLAN VISIT</span><span class="lc-jp">訪問計画</span><span class="lc-kr">방문 계획</span><span class="lc-cn">参观计划</span></a></li>
     <li><a href="#shop"><span class="lc-mn">ДЭЛГҮҮР</span><span class="lc-en">SHOP</span><span class="lc-jp">ショップ</span><span class="lc-kr">쇼핑</span><span class="lc-cn">商店</span></a></li>
-    <li><a href="#contact"><span class="lc-mn">ХОЛБОО БАРИХ</span><span class="lc-en">CONTACT</span><span class="lc-jp">連絡</span><span class="lc-kr">연락처</span><span class="lc-cn">联系</span></a></li>
+    <li><a href="#contact"><span class="lc-mn">ХОЛБОО</span><span class="lc-en">CONTACT</span><span class="lc-jp">連絡</span><span class="lc-kr">연락처</span><span class="lc-cn">联系</span></a></li>
   </ul>
   <div class="lang-switcher">
     <button class="lang-btn active" onclick="setLang('mn')">MN</button>
@@ -772,11 +766,11 @@
   <div class="qi-item">
     <span class="qi-label lc-mn">Тасалбар</span><span class="qi-label lc-en">Ticket</span><span class="qi-label lc-jp">入場料</span><span class="qi-label lc-kr">입장권</span><span class="qi-label lc-cn">门票</span>
     <div class="qi-val">
-      <span class="lc-mn">6,000 / 21,000₮</span>
-      <span class="lc-en">MNT 6,000 / 21,000</span>
-      <span class="lc-jp">6,000 / 21,000₮</span>
-      <span class="lc-kr">6,000 / 21,000₮</span>
-      <span class="lc-cn">6,000 / 21,000₮</span>
+      <span class="lc-mn">3,000 / 10,000₮</span>
+      <span class="lc-en">MNT 3,000 / 10,000</span>
+      <span class="lc-jp">3,000 / 10,000₮</span>
+      <span class="lc-kr">3,000 / 10,000₮</span>
+      <span class="lc-cn">3,000 / 10,000₮</span>
     </div>
   </div>
   <div class="qi-item">
@@ -791,7 +785,7 @@
   </div>
   <div class="qi-item">
     <span class="qi-label lc-mn">Утас</span><span class="qi-label lc-en">Phone</span><span class="qi-label lc-jp">電話</span><span class="qi-label lc-kr">전화</span><span class="qi-label lc-cn">电话</span>
-    <div class="qi-val">+976 хххх xxxx</div>
+    <div class="qi-val">+976 9911 xxxx</div>
   </div>
 </div>
  
@@ -970,7 +964,7 @@
 <section id="experiences" class="exp-section">
   <div style="max-width:1200px; margin:0 auto;">
     <p class="section-eyebrow">
-      <span class="lc-mn">Аяллын үйлчилгээ</span><span class="lc-en">Tour Services</span><span class="lc-jp">ツアーサービス</span><span class="lc-kr">투어 서비스</span><span class="lc-cn">旅游服务</span>
+      <span class="lc-mn">Аяллын туршлага</span><span class="lc-en">Experiences</span><span class="lc-jp">体験プログラム</span><span class="lc-kr">체험 프로그램</span><span class="lc-cn">体验项目</span>
     </p>
     <h2 class="section-title">
       <span class="lc-mn">Та юу мэдэрч болох вэ?</span>
@@ -988,11 +982,11 @@
           <span class="lc-mn">Гэрэлт Дэнлүү</span><span class="lc-en">Lantern Ceremony</span><span class="lc-jp">灯籠の儀式</span><span class="lc-kr">등불 의식</span><span class="lc-cn">灯笼仪式</span>
         </h3>
         <p class="exp-desc">
-          <span class="lc-mn">Дэнлүү өргөх уламжлалт ёслолд оролцож, гэрэл, итгэл найдвар, сайн сайхныг бэлгэдэн хүслээ илэрхийлэх боломжтой.</span>
-          <span class="lc-en">Join the traditional lantern offering ceremony and express your wishes, symbolizing light, hope, and well-being.</span>
-          <span class="lc-jp">伝統的な燈籠奉納の儀式に参加し、光・希望・幸福を象徴しながら願いを込めましょう。</span>
-          <span class="lc-kr">전통 등불 봉납 의식에 참여하여 빛, 희망, 행복을 상징하며 소원을 빌어보세요.</span>
-          <span class="lc-cn">参与传统供灯仪式，以光明、希望与幸福为象征，表达您的心愿。</span>
+          <span class="lc-mn">Уламжлалт ёслолын дагуу гэрэлт дэнлүү өргөж, оюун ухаандаа гэрэл асаа.</span>
+          <span class="lc-en">Participate in a sacred lantern offering ceremony, lighting the way for wisdom and inner peace.</span>
+          <span class="lc-jp">伝統的な燈籠奉納の儀式に参加し、内なる平和と智慧の道を照らす。</span>
+          <span class="lc-kr">전통 등불 봉납 의식에 참여하여 지혜와 내면의 평화를 위한 길을 밝히세요.</span>
+          <span class="lc-cn">参与传统供灯仪式，为智慧与内心平静点亮道路。</span>
         </p>
       </div>
       <div class="exp-card">
@@ -1002,11 +996,11 @@
           <span class="lc-mn">Эрдмийн Зам</span><span class="lc-en">Wisdom Trail</span><span class="lc-jp">知恵のスタンプラリー</span><span class="lc-kr">지혜의 길 스탬프 랠리</span><span class="lc-cn">智慧之路印章集章</span>
         </h3>
         <p class="exp-desc">
-          <span class="lc-mn">Хийдийн аяллын цэгүүдээр аялж, дурсгалын тамга цуглуулаарай. Тамгаа бүрэн цуглуулсан аялагч амжилтын тэмдэг авах боломжтой.</span>
-          <span class="lc-en">Explore the monastery's key sites and collect commemorative stamps. Visitors who collect all stamps will receive a special achievement badge.</span>
-          <span class="lc-jp">寺院の見どころをめぐりながら記念スタンプを集めよう。全スタンプを集めた方には達成バッジが贈られます。</span>
-          <span class="lc-kr">사원의 주요 명소를 둘러보며 기념 도장을 모으세요. 모든 도장을 모은 방문객에게는 특별 성취 배지가 수여됩니다.</span>
-          <span class="lc-cn">游览寺院各主要景点并收集纪念印章。集齐全部印章的游客将获得特别成就徽章。</span>
+          <span class="lc-mn">Хийдийн нутгаар алхаж, тамганы цуглуулга хий. Амжилтын тэмдэг авах боломжтой.</span>
+          <span class="lc-en">Walk the grounds collecting stamps at sacred sites, earning achievement badges on your wisdom journey.</span>
+          <span class="lc-jp">聖地を歩きながらスタンプを集め、智慧の旅の達成バッジを獲得しよう。</span>
+          <span class="lc-kr">성지를 걸으며 스탬프를 모으고 지혜 여행의 성취 배지를 획득하세요.</span>
+          <span class="lc-cn">漫步圣地收集印章，在智慧之旅中获得成就徽章。</span>
         </p>
       </div>
       <div class="exp-card">
@@ -1044,11 +1038,11 @@
           <span class="lc-mn">Тарни Сийлбэр</span><span class="lc-en">Mantra Carving</span><span class="lc-jp">マントラ彫刻</span><span class="lc-kr">만트라 조각</span><span class="lc-cn">真言雕刻</span>
         </h3>
         <p class="exp-desc">
-          <span class="lc-mn">Уламжлалт арга барилаар чулуу дээр тарни сийлбэр хийж, монгол бичгийн өв соёл, гар урлалын уран хийцийг мэдрэн бүтээлчээр оролцоорой.</span>
-          <span class="lc-en">Carve mantras on stone using traditional techniques, and creatively experience the cultural heritage of Mongolian script and the artistry of handcraft.</span>
-          <span class="lc-jp">伝統的な技法で石にマントラを刻み、モンゴル文字の文化遺産と手工芸の美しさを創造的に体験しましょう。</span>
-          <span class="lc-kr">전통 기법으로 돌에 진언을 새기며, 몽골 문자의 문화유산과 수공예의 예술성을 창의적으로 체험해 보세요.</span>
-          <span class="lc-cn">用传统技法在石头上雕刻真言，创意体验蒙古文字文化遗产与手工艺的精湛技艺。</span>
+          <span class="lc-mn">Уламжлалт аргаар чулуу дээр тарни сийлбэрийг гараараа хий. Монгол бичгийн урлагийг мэдэр.</span>
+          <span class="lc-en">Hand-carve sacred mantras in stone using traditional techniques. Experience the art of Mongolian script.</span>
+          <span class="lc-jp">伝統的な技法で石に神聖なマントラを手彫りし、モンゴル文字の芸術を体験する。</span>
+          <span class="lc-kr">전통 기법으로 돌에 신성한 만트라를 직접 새기고 몽골 문자 예술을 체험하세요.</span>
+          <span class="lc-cn">用传统技法在石头上手工雕刻神圣真言，体验蒙古文字艺术。</span>
         </p>
       </div>
       <div class="exp-card">
@@ -1058,11 +1052,11 @@
           <span class="lc-mn">Оюун Сэргээх Цай</span><span class="lc-en">Wisdom Tea Ceremony</span><span class="lc-jp">智慧茶の儀式</span><span class="lc-kr">지혜 차 의식</span><span class="lc-cn">智慧茶道</span>
         </h3>
         <p class="exp-desc">
-         <span class="lc-mn">Уламжлалт монгол цайны ёслолд оролцож, хийдийн түүх, домог болон лам нарын тайлбарлах судар, тарнийн утга агуулгыг сонсон ойлголтоо тэлээрэй.</span>
-         <span class="lc-en">Join a traditional Mongolian tea ceremony and broaden your understanding by listening to the monastery's history, legends, and the monks' explanations of sacred scriptures and mantras.</span>
-         <span class="lc-jp">伝統的なモンゴル茶道に参加し、寺院の歴史・伝説、そして僧侶による経典やマントラの解説を聞きながら理解を深めましょう。</span>
-         <span class="lc-kr">전통 몽골 차 의식에 참여하여 사원의 역사와 전설, 승려들이 설명하는 경전과 진언의 의미를 들으며 이해를 넓혀보세요.</span>
-         <span class="lc-cn">参与传统蒙古茶道，聆听寺院的历史传说以及喇嘛对经文和真言含义的讲解，拓展您的认知与理解。</span>
+          <span class="lc-mn">Уламжлалт Монгол цайн ёслолыг туршиж, хийдийн түүхийг уран яруу өгүүллэгээр сонс.</span>
+          <span class="lc-en">Experience a traditional Mongolian tea ceremony paired with storytelling about the monastery's sacred history.</span>
+          <span class="lc-jp">伝統的なモンゴル茶道を体験しながら、寺院の神聖な歴史の物語に耳を傾ける。</span>
+          <span class="lc-kr">전통 몽골 차 의식을 경험하며 사원의 신성한 역사 이야기를 들으세요.</span>
+          <span class="lc-cn">体验传统蒙古茶道，聆听关于寺院神圣历史的故事。</span>
         </p>
       </div>
     </div>
@@ -1071,51 +1065,51 @@
  
 <!-- GALLERY -->
 <section id="gallery" class="gallery-section">
-<div style="max-width:1200px; margin:0 auto;">
-  <p class="section-eyebrow">
-    <span class="lc-mn">Хийдийн орчин</span><span class="lc-en">Gallery</span><span class="lc-jp">ギャラリー</span><span class="lc-kr">갤러리</span><span class="lc-cn">相册</span>
-  </p>
-  <h2 class="section-title">
-    <span class="lc-mn">Хийдийн орчин</span>
-    <span class="lc-en">Through the Lens of Manzushir</span>
-    <span class="lc-jp">マンズシルのレンズ越しに</span>
-    <span class="lc-kr">만주시르의 렌즈를 통해</span>
-    <span class="lc-cn">曼殊寺的影像</span>
-  </h2>
-  <div class="divider"></div>
-  <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:8px; margin-top:2rem;">
-    <div class="gallery-item">
-      <img src="photos/uzemj4.png" alt="Хийдийн харагдац" style="width:100%; height:200px; object-fit:cover;">
-      <div class="gallery-label">
-        <span class="lc-mn">Хийдийн харагдац</span><span class="lc-en">Monastery View</span><span class="lc-jp">寺院の眺め</span><span class="lc-kr">사원 전망</span><span class="lc-cn">寺院全景</span>
+  <div style="max-width:1200px; margin:0 auto;">
+    <p class="section-eyebrow">
+      <span class="lc-mn">Хийдийн орчин</span><span class="lc-en">Gallery</span><span class="lc-jp">ギャラリー</span><span class="lc-kr">갤러리</span><span class="lc-cn">相册</span>
+    </p>
+    <h2 class="section-title">
+      <span class="lc-mn">Хийдийн орчин</span>
+      <span class="lc-en">Through the Lens of Manzushir</span>
+      <span class="lc-jp">マンズシルのレンズ越しに</span>
+      <span class="lc-kr">만주시르의 렌즈를 통해</span>
+      <span class="lc-cn">曼殊寺的影像</span>
+    </h2>
+    <div class="divider"></div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="photos/uzemj4.png" alt="Хийдийн харагдац">
+        <div class="gallery-label">
+          <span class="lc-mn">Хийдийн харагдац</span><span class="lc-en">Monastery View</span><span class="lc-jp">寺院の眺め</span><span class="lc-kr">사원 전망</span><span class="lc-cn">寺院全景</span>
+        </div>
       </div>
-    </div>
-    <div class="gallery-item">
-      <img src="photos/huuchinmanzushir2.jpg" alt="Манзушир" style="width:100%; height:200px; object-fit:cover;">
-      <div class="gallery-label">
-        <span class="lc-mn">Хуучин Манзушир</span><span class="lc-en">Historical Manzushir</span><span class="lc-jp">歴史的なマンズシル</span><span class="lc-kr">역사적 만주시르</span><span class="lc-cn">历史曼殊寺</span>
+      <div class="gallery-item">
+        <img src="photos/huuchinmanzushir2.jpg" alt="Манзушир">
+        <div class="gallery-label">
+          <span class="lc-mn">Хуучин Манзушир</span><span class="lc-en">Historical Manzushir</span><span class="lc-jp">歴史的なマンズシル</span><span class="lc-kr">역사적 만주시르</span><span class="lc-cn">历史曼殊寺</span>
+        </div>
       </div>
-    </div>
-    <div class="gallery-item">
-      <img src="photos/khiidiintuuri3.png" alt="Хийдийн туурь" style="width:100%; height:200px; object-fit:cover;">
-      <div class="gallery-label">
-        <span class="lc-mn">Хийдийн дэлгэрэнгүй</span><span class="lc-en">Temple Detail</span><span class="lc-jp">寺院の詳細</span><span class="lc-kr">사원 세부</span><span class="lc-cn">寺院细节</span>
+      <div class="gallery-item">
+        <img src="photos/khiidiintuuri3.png" alt="Хийдийн туурь">
+        <div class="gallery-label">
+          <span class="lc-mn">Хийдийн дэлгэрэнгүй</span><span class="lc-en">Temple Detail</span><span class="lc-jp">寺院の詳細</span><span class="lc-kr">사원 세부</span><span class="lc-cn">寺院细节</span>
+        </div>
       </div>
-    </div>
-    <div class="gallery-item">
-      <img src="photos/togoo7.jpeg" alt="3000 жилийн настай тогоо" style="width:100%; height:200px; object-fit:cover;">
-      <div class="gallery-label">
-        <span class="lc-mn">3000 жилийн настай тогоо</span><span class="lc-en">3000-Year-Old Cauldron</span><span class="lc-jp">3000年の大釜</span><span class="lc-kr">3000년 된 가마솥</span><span class="lc-cn">3000年历史铁锅</span>
+      <div class="gallery-item">
+        <img src="photos/togoo7.jpeg" alt="3000 жилийн настай тогоо">
+        <div class="gallery-label">
+          <span class="lc-mn">3000 жилийн настай тогоо</span><span class="lc-en">3000-Year-Old Cauldron</span><span class="lc-jp">3000年の大釜</span><span class="lc-kr">3000년 된 가마솥</span><span class="lc-cn">3000年历史铁锅</span>
+        </div>
       </div>
-    </div>
-    <div class="gallery-item">
-      <img src="photos/muzei6.jpg" alt="Манзушир музей" style="width:100%; height:200px; object-fit:cover;">
-      <div class="gallery-label">
-        <span class="lc-mn">Манзушир музей</span><span class="lc-en">Manzushir Museum</span><span class="lc-jp">マンズシル博物館</span><span class="lc-kr">만주시르 박물관</span><span class="lc-cn">曼殊寺博物馆</span>
+      <div class="gallery-item">
+        <img src="photos/muzei6.jpg" alt="Манзушир музей">
+        <div class="gallery-label">
+          <span class="lc-mn">Манзушир музей</span><span class="lc-en">Manzushir Museum</span><span class="lc-jp">マンズシル博物館</span><span class="lc-kr">만주시르 박물관</span><span class="lc-cn">曼殊寺博物馆</span>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </section>
  
 <!-- PLAN YOUR VISIT -->
@@ -1140,7 +1134,7 @@
         <ul class="plan-card">
           <li><span class="lc-mn">УБ хотоос 42 км</span><span class="lc-en">42 km from UB city</span><span class="lc-jp">ウランバートルから42km</span><span class="lc-kr">울란바토르에서 42km</span><span class="lc-cn">距乌兰巴托42公里</span></li>
           <li><span class="lc-mn">Автомашин: 45-60 мин</span><span class="lc-en">By car: 45–60 min</span><span class="lc-jp">車で45〜60分</span><span class="lc-kr">자동차로 45-60분</span><span class="lc-cn">驾车45-60分钟</span></li>
-          <li><span class="lc-mn">Нийтийн тээвэр, такси үйлчилгээ<span class="lc-en">Shared taxi available</span><span class="lc-jp">乗合タクシー利用可</span><span class="lc-kr">합승 택시 이용 가능</span><span class="lc-cn">可乘坐合乘出租车</span></li>
+          <li><span class="lc-mn">Маршрут такси боломжтой</span><span class="lc-en">Shared taxi available</span><span class="lc-jp">乗合タクシー利用可</span><span class="lc-kr">합승 택시 이용 가능</span><span class="lc-cn">可乘坐合乘出租车</span></li>
         </ul>
       </div>
       <div class="plan-card">
@@ -1148,9 +1142,9 @@
           🎫 <span class="lc-mn">Тасалбарын үнэ</span><span class="lc-en">Entrance Fees</span><span class="lc-jp">入場料</span><span class="lc-kr">입장료</span><span class="lc-cn">门票价格</span>
         </h3>
         <ul>
-          <li><span class="lc-mn">Монгол иргэн: 6,000₮</span><span class="lc-en">Mongolian citizen: 6,000₮</span><span class="lc-jp">モンゴル市民: 6,000₮</span><span class="lc-kr">몽골 시민: 6,000₮</span><span class="lc-cn">蒙古公民: 6,000₮</span></li>
-          <li><span class="lc-mn">Гадаад иргэн: 21,000₮</span><span class="lc-en">Foreign visitor: 21,000₮</span><span class="lc-jp">外国人観光客: 21,000₮</span><span class="lc-kr">외국인 방문객: 21,000₮</span><span class="lc-cn">外国游客: 21,000₮</span></li>
-          <li><span class="lc-mn">Тээврийн хэрэгсэл: 6,000₮-130,000₮</span><span class="lc-en">Vehicle fee: 6,000₮-130,000₮</span><span class="lc-jp">車両料金: 6,000₮-130,000₮</span><span class="lc-kr">차량 요금: 6,000₮-130,000₮</span><span class="lc-cn">车辆费用: 6,000₮-130,000₮</span></li>
+          <li><span class="lc-mn">Монгол иргэн: 3,000₮</span><span class="lc-en">Mongolian citizen: 3,000₮</span><span class="lc-jp">モンゴル市民: 3,000₮</span><span class="lc-kr">몽골 시민: 3,000₮</span><span class="lc-cn">蒙古公民: 3,000₮</span></li>
+          <li><span class="lc-mn">Гадаад иргэн: 10,000₮</span><span class="lc-en">Foreign visitor: 10,000₮</span><span class="lc-jp">外国人観光客: 10,000₮</span><span class="lc-kr">외국인 방문객: 10,000₮</span><span class="lc-cn">外国游客: 10,000₮</span></li>
+          <li><span class="lc-mn">Тээврийн хэрэгсэл: 2,000₮</span><span class="lc-en">Vehicle fee: 2,000₮</span><span class="lc-jp">車両料金: 2,000₮</span><span class="lc-kr">차량 요금: 2,000₮</span><span class="lc-cn">车辆费用: 2,000₮</span></li>
         </ul>
       </div>
       <div class="plan-card">
@@ -1158,59 +1152,28 @@
           🕐 <span class="lc-mn">Ажиллах цаг</span><span class="lc-en">Opening Hours</span><span class="lc-jp">開館時間</span><span class="lc-kr">운영 시간</span><span class="lc-cn">开放时间</span>
         </h3>
         <ul>
-         <li><span class="lc-mn">Манзушир музей — 5-р сарын 1 — 10-р сарын 31</span><span class="lc-en">Manzushir Museum — 1 May — 31 October</span><span class="lc-jp">マンズシル博物館 — 5月1日〜10月31日</span><span class="lc-kr">만주시르 박물관 — 5월 1일 — 10월 31일</span><span class="lc-cn">曼殊寺博物馆 — 5月1日 — 10月31日</span></li>
-         <li><span class="lc-mn">Өдөр бүр: 09:00–18:00</span><span class="lc-en">Daily: 09:00–18:00</span><span class="lc-jp">毎日: 9:00〜18:00</span><span class="lc-kr">매일: 09:00–18:00</span><span class="lc-cn">每日: 09:00–18:00</span></li>
+          <li><span class="lc-mn">5-р сарын 1 — 10-р сарын 31</span><span class="lc-en">1 May — 31 October</span><span class="lc-jp">5月1日〜10月31日</span><span class="lc-kr">5월 1일 — 10월 31일</span><span class="lc-cn">5月1日 — 10月31日</span></li>
+          <li><span class="lc-mn">Өдөр бүр: 09:00–18:00</span><span class="lc-en">Daily: 09:00–18:00</span><span class="lc-jp">毎日: 9:00〜18:00</span><span class="lc-kr">매일: 09:00–18:00</span><span class="lc-cn">每日: 09:00–18:00</span></li>
         </ul>
       </div>
       <div class="plan-card">
-      <h3>
-        📋 <span class="lc-mn">Санамж</span><span class="lc-en">Important Notes</span><span class="lc-jp">注意事項</span><span class="lc-kr">주의사항</span><span class="lc-cn">注意事项</span>
-      </h3>
-      <ul>
-       <li>
-      <span class="lc-mn">Хог хаягдлаа ил задгай хаяхгүй, зориулалтын саванд хийх</span>
-      <span class="lc-en">Dispose of waste only in designated bins, no littering</span>
-      <span class="lc-jp">ゴミは所定のゴミ箱に捨て、不法投棄しないこと</span>
-      <span class="lc-kr">쓰레기는 지정된 수거함에만 버리고 무단 투기 금지</span>
-      <span class="lc-cn">垃圾须放入指定垃圾桶，禁止随意丢弃</span>
-       </li>
-       <li>
-      <span class="lc-mn">Гал түлэх, ил задгай тамхи татахдаа ой, хээрийн түймрийн аюулаас сэргийлэх</span>
-      <span class="lc-en">Take precautions against forest fires when making fires or smoking outdoors</span>
-      <span class="lc-jp">焚き火や屋外喫煙の際は山火事に十分注意すること</span>
-      <span class="lc-kr">불을 피우거나 야외 흡연 시 산불 위험에 주의할 것</span>
-      <span class="lc-cn">生火或户外吸烟时须防范森林火灾风险</span>
-       </li>
-       <li>
-      <span class="lc-mn">Мод, бут, ургамлыг гэмтээхгүй байх</span>
-      <span class="lc-en">Do not damage trees, shrubs, or plants</span>
-      <span class="lc-jp">樹木・低木・植物を傷つけないこと</span>
-      <span class="lc-kr">나무, 관목, 식물을 훼손하지 말 것</span>
-      <span class="lc-cn">禁止损坏树木、灌木及植物</span>
-       </li>
-       <li>
-      <span class="lc-mn">Байгалийн чулуу, түүхэн дурсгалт зүйлсийг эвдэхгүй, бичиж сийлэхгүй байх</span>
-      <span class="lc-en">Do not damage or carve on natural stones or historical monuments</span>
-      <span class="lc-jp">自然石や歴史的遺物を壊したり、刻んだりしないこと</span>
-      <span class="lc-kr">자연석이나 역사적 유물을 훼손하거나 새기지 말 것</span>
-      <span class="lc-cn">禁止破坏或刻划自然石块及历史文物</span>
-       </li>
-        <li>
-      <span class="lc-mn">Дуу чимээ гаргаж байгаль орчны тайван байдлыг алдагдуулахгүй байх</span>
-      <span class="lc-en">Avoid loud noises that disturb the tranquility of the natural environment</span>
-      <span class="lc-jp">大きな音を出して自然環境の静けさを乱さないこと</span>
-      <span class="lc-kr">큰 소리를 내어 자연환경의 고요함을 해치지 말 것</span>
-      <span class="lc-cn">禁止制造噪音，破坏自然环境的宁静</span>
-       </li>
-     </ul>
-  </div>
+        <h3>
+          📋 <span class="lc-mn">Зочдын дүрэм</span><span class="lc-en">Visitor Rules</span><span class="lc-jp">訪問者ルール</span><span class="lc-kr">방문객 규정</span><span class="lc-cn">游客须知</span>
+        </h3>
+        <ul>
+          <li><span class="lc-mn">Хог хаяхгүй байх</span><span class="lc-en">No littering</span><span class="lc-jp">ゴミを捨てない</span><span class="lc-kr">쓰레기 투기 금지</span><span class="lc-cn">禁止乱扔垃圾</span></li>
+          <li><span class="lc-mn">Гал гаргахгүй байх</span><span class="lc-en">No open fires</span><span class="lc-jp">火気厳禁</span><span class="lc-kr">화기 사용 금지</span><span class="lc-cn">禁止明火</span></li>
+          <li><span class="lc-mn">Ургамал цуглуулахгүй байх</span><span class="lc-en">No plant collection</span><span class="lc-jp">植物の採取禁止</span><span class="lc-kr">식물 채집 금지</span><span class="lc-cn">禁止采集植物</span></li>
+        </ul>
+      </div>
       <div class="plan-card" style="grid-column: span 2;">
         <h3>
-          🗺️ <span class="lc-mn">Санал болгох аяллын хөтөлбөр</span><span class="lc-en">Suggested Tour Programs</span><span class="lc-jp">おすすめツアープログラム</span><span class="lc-kr">추천 투어 프로그램</span><span class="lc-cn">推荐旅游行程</span>
+          🗺️ <span class="lc-mn">Санал болгох маршрутууд</span><span class="lc-en">Suggested Routes</span><span class="lc-jp">おすすめルート</span><span class="lc-kr">추천 코스</span><span class="lc-cn">推荐路线</span>
+        </h3>
         <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-top:0.75rem;">
           <div style="padding:1rem; border:0.5px solid var(--border); text-align:center;">
             <div style="font-family:'Cinzel',serif; color:var(--gold); font-size:0.75rem; margin-bottom:0.5rem;">
-              <span class="lc-mn">1 цагийн хөтөлбөр</span><span class="lc-en">1-Hour Route</span><span class="lc-jp">1時間コース</span><span class="lc-kr">1시간 코스</span><span class="lc-cn">1小时路线</span>
+              <span class="lc-mn">1 цагийн маршрут</span><span class="lc-en">1-Hour Route</span><span class="lc-jp">1時間コース</span><span class="lc-kr">1시간 코스</span><span class="lc-cn">1小时路线</span>
             </div>
             <p style="font-size:0.8rem; color:var(--text-muted);">
               <span class="lc-mn">Музей → Үндсэн сүм → Харагдац</span>
@@ -1222,7 +1185,7 @@
           </div>
           <div style="padding:1rem; border:1px solid var(--gold); text-align:center; background:rgba(201,168,76,0.04);">
             <div style="font-family:'Cinzel',serif; color:var(--gold); font-size:0.75rem; margin-bottom:0.5rem;">
-              <span class="lc-mn">Хагас өдрийн хөтөлбөр</span><span class="lc-en">Half-Day Route</span><span class="lc-jp">半日コース</span><span class="lc-kr">반나절 코스</span><span class="lc-cn">半日路线</span>
+              <span class="lc-mn">Хагас өдрийн маршрут</span><span class="lc-en">Half-Day Route</span><span class="lc-jp">半日コース</span><span class="lc-kr">반나절 코스</span><span class="lc-cn">半日路线</span>
             </div>
             <p style="font-size:0.8rem; color:var(--text-muted);">
               <span class="lc-mn">Эрдмийн зам + AR аялал + Цайны ёслол</span>
@@ -1234,10 +1197,10 @@
           </div>
           <div style="padding:1rem; border:0.5px solid var(--border); text-align:center;">
             <div style="font-family:'Cinzel',serif; color:var(--gold); font-size:0.75rem; margin-bottom:0.5rem;">
-              <span class="lc-mn">Бүтэн өдрийн хөтөлбөр</span><span class="lc-en">Full-Day Route</span><span class="lc-jp">終日コース</span><span class="lc-kr">하루 코스</span><span class="lc-cn">全日路线</span>
+              <span class="lc-mn">Бүтэн өдрийн маршрут</span><span class="lc-en">Full-Day Route</span><span class="lc-jp">終日コース</span><span class="lc-kr">하루 코스</span><span class="lc-cn">全日路线</span>
             </div>
             <p style="font-size:0.8rem; color:var(--text-muted);">
-              <span class="lc-mn">Бүх үйлчилгээ + Бясалгал + Уулын авиралт</span>
+              <span class="lc-mn">Бүх туршлага + Бясалгал + Уулын авиралт</span>
               <span class="lc-en">All experiences + Meditation + Mountain hike</span>
               <span class="lc-jp">全体験+瞑想+山ハイキング</span>
               <span class="lc-kr">모든 체험+명상+산행</span>
@@ -1334,155 +1297,6 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-<!-- ОРЧНЫ ТӨЛӨВЛӨЛТ -->
-<section id="environment" style="background: var(--deep); padding:6rem 3rem;">
-  <div style="max-width:1200px; margin:0 auto;">
-    <p class="section-eyebrow">
-      <span class="lc-mn">Орчны төлөвлөлт</span>
-      <span class="lc-en">Environmental Planning</span>
-      <span class="lc-jp">環境計画</span>
-      <span class="lc-kr">환경 계획</span>
-      <span class="lc-cn">环境规划</span>
-    </p>
-    <h2 class="section-title">
-      <span class="lc-mn">Орчны стандарт төлөвлөлт</span>
-      <span class="lc-en">Environmental Planning</span>
-      <span class="lc-jp">環境計画</span>
-      <span class="lc-kr">환경 계획</span>
-      <span class="lc-cn">环境规划</span>
-    </h2>
-    <div class="divider"></div>
-    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:2rem;">
-
-      <div style="position:relative; overflow:hidden; border:0.5px solid var(--border);">
-        <img src="photos/yrunhii_map.png" style="width:100%; height:220px; object-fit:cover; display:block; filter:brightness(0.7);">
-        <div style="position:absolute; bottom:0; left:0; right:0; padding:1.25rem; background:linear-gradient(transparent, rgba(13,13,11,0.95));">
-          <div style="font-family:'Cinzel',serif; font-size:0.7rem; letter-spacing:0.15em; color:var(--gold); margin-bottom:0.3rem;">01</div>
-          <div style="font-family:'Cinzel',serif; font-size:0.9rem; color:var(--cream); margin-bottom:0.3rem;">
-            <span class="lc-mn">Газрын зураг</span>
-            <span class="lc-en">Site Map</span>
-            <span class="lc-jp">敷地図</span>
-            <span class="lc-kr">부지 지도</span>
-            <span class="lc-cn">场地地图</span>
-          </div>
-          <div style="font-size:0.8rem; color:var(--text-muted);">
-            <span class="lc-mn">Хийдийн нутаг дэвсгэрийн төлөвлөлт</span>
-            <span class="lc-en">Monastery grounds planning</span>
-            <span class="lc-jp">境内の配置計画</span>
-            <span class="lc-kr">경내 배치 계획</span>
-            <span class="lc-cn">寺院场地规划</span>
-          </div>
-        </div>
-      </div>
-
-      <div style="position:relative; overflow:hidden; border:0.5px solid var(--border);">
-        <img src="photos/toilet1.png" style="width:100%; height:220px; object-fit:cover; display:block; filter:brightness(0.7);">
-        <div style="position:absolute; bottom:0; left:0; right:0; padding:1.25rem; background:linear-gradient(transparent, rgba(13,13,11,0.95));">
-          <div style="font-family:'Cinzel',serif; font-size:0.7rem; letter-spacing:0.15em; color:var(--gold); margin-bottom:0.3rem;">02</div>
-          <div style="font-family:'Cinzel',serif; font-size:0.9rem; color:var(--cream); margin-bottom:0.3rem;">
-            <span class="lc-mn">Байгаль ээлтэй ариун цэврийн өрөө</span>
-            <span class="lc-en">Eco-friendly Restroom</span>
-            <span class="lc-jp">エコトイレ</span>
-            <span class="lc-kr">친환경 화장실</span>
-            <span class="lc-cn">环保卫生间</span>
-          </div>
-          <div style="font-size:0.8rem; color:var(--text-muted);">
-            <span class="lc-mn">Байгальд ээлтэй шийдэл</span>
-            <span class="lc-en">Environmentally friendly solution</span>
-            <span class="lc-jp">環境に優しい設備</span>
-            <span class="lc-kr">환경 친화적 시설</span>
-            <span class="lc-cn">环境友好型设施</span>
-          </div>
-        </div>
-      </div>
-
-      <div style="position:relative; overflow:hidden; border:0.5px solid var(--border);">
-        <img src="photos/yvgan_zam.png" style="width:100%; height:220px; object-fit:cover; display:block; filter:brightness(0.7);">
-        <div style="position:absolute; bottom:0; left:0; right:0; padding:1.25rem; background:linear-gradient(transparent, rgba(13,13,11,0.95));">
-          <div style="font-family:'Cinzel',serif; font-size:0.7rem; letter-spacing:0.15em; color:var(--gold); margin-bottom:0.3rem;">03</div>
-          <div style="font-family:'Cinzel',serif; font-size:0.9rem; color:var(--cream); margin-bottom:0.3rem;">
-            <span class="lc-mn">Явган хүний зам</span>
-            <span class="lc-en">Pedestrian Pathway</span>
-            <span class="lc-jp">歩行者道</span>
-            <span class="lc-kr">보행자 길</span>
-            <span class="lc-cn">步行道</span>
-          </div>
-          <div style="font-size:0.8rem; color:var(--text-muted);">
-            <span class="lc-mn">Байгальтай нийцсэн явган зам</span>
-            <span class="lc-en">Nature-integrated walking path</span>
-            <span class="lc-jp">自然と調和した遊歩道</span>
-            <span class="lc-kr">자연과 조화로운 보행로</span>
-            <span class="lc-cn">与自然融合的步道</span>
-          </div>
-        </div>
-      </div>
-
-      <div style="position:relative; overflow:hidden; border:0.5px solid var(--border);">
-        <img src="photos/hogiin_sav.png" style="width:100%; height:220px; object-fit:cover; display:block; filter:brightness(0.7);">
-        <div style="position:absolute; bottom:0; left:0; right:0; padding:1.25rem; background:linear-gradient(transparent, rgba(13,13,11,0.95));">
-          <div style="font-family:'Cinzel',serif; font-size:0.7rem; letter-spacing:0.15em; color:var(--gold); margin-bottom:0.3rem;">04</div>
-          <div style="font-family:'Cinzel',serif; font-size:0.9rem; color:var(--cream); margin-bottom:0.3rem;">
-            <span class="lc-mn">Ангилалтай хогын сав</span>
-            <span class="lc-en">Sorted Waste Bins</span>
-            <span class="lc-jp">分別ゴミ箱</span>
-            <span class="lc-kr">분리수거함</span>
-            <span class="lc-cn">分类垃圾桶</span>
-          </div>
-          <div style="font-size:0.8rem; color:var(--text-muted);">
-            <span class="lc-mn">Хог хаягдлын ангилал, дахин боловсруулалт</span>
-            <span class="lc-en">Waste sorting and recycling</span>
-            <span class="lc-jp">廃棄物の分別とリサイクル</span>
-            <span class="lc-kr">폐기물 분류 및 재활용</span>
-            <span class="lc-cn">垃圾分类与回收</span>
-          </div>
-        </div>
-      </div>
-
-      <div style="position:relative; overflow:hidden; border:0.5px solid var(--border);">
-        <img src="photos/gereltuuleg.png" style="width:100%; height:220px; object-fit:cover; display:block; filter:brightness(0.7);">
-        <div style="position:absolute; bottom:0; left:0; right:0; padding:1.25rem; background:linear-gradient(transparent, rgba(13,13,11,0.95));">
-          <div style="font-family:'Cinzel',serif; font-size:0.7rem; letter-spacing:0.15em; color:var(--gold); margin-bottom:0.3rem;">05</div>
-          <div style="font-family:'Cinzel',serif; font-size:0.9rem; color:var(--cream); margin-bottom:0.3rem;">
-            <span class="lc-mn">Гэрэлтүүлэг</span>
-            <span class="lc-en">Lighting</span>
-            <span class="lc-jp">照明</span>
-            <span class="lc-kr">조명</span>
-            <span class="lc-cn">照明</span>
-          </div>
-          <div style="font-size:0.8rem; color:var(--text-muted);">
-            <span class="lc-mn">Нарны эрчим хүчит гэрэлтүүлэг</span>
-            <span class="lc-en">Solar-powered lighting system</span>
-            <span class="lc-jp">太陽光発電照明システム</span>
-            <span class="lc-kr">태양광 조명 시스템</span>
-            <span class="lc-cn">太阳能照明系统</span>
-          </div>
-        </div>
-      </div>
-
-      <div style="position:relative; overflow:hidden; border:0.5px solid var(--border);">
-        <img src="photos/undnii_us.png" style="width:100%; height:220px; object-fit:cover; display:block; filter:brightness(0.7);">
-        <div style="position:absolute; bottom:0; left:0; right:0; padding:1.25rem; background:linear-gradient(transparent, rgba(13,13,11,0.95));">
-          <div style="font-family:'Cinzel',serif; font-size:0.7rem; letter-spacing:0.15em; color:var(--gold); margin-bottom:0.3rem;">06</div>
-          <div style="font-family:'Cinzel',serif; font-size:0.9rem; color:var(--cream); margin-bottom:0.3rem;">
-            <span class="lc-mn">Ундны цэвэр усны төхөөрөмж</span>
-            <span class="lc-en">Clean Drinking Water</span>
-            <span class="lc-jp">飲料水設備</span>
-            <span class="lc-kr">식수 시설</span>
-            <span class="lc-cn">饮用水设施</span>
-          </div>
-          <div style="font-size:0.8rem; color:var(--text-muted);">
-            <span class="lc-mn">Зочдод зориулсан цэвэр усны цэг</span>
-            <span class="lc-en">Clean water stations for visitors</span>
-            <span class="lc-jp">来訪者向け給水スタンド</span>
-            <span class="lc-kr">방문객을 위한 음수대</span>
-            <span class="lc-cn">游客饮水站</span>
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
@@ -1620,7 +1434,7 @@
         <li><a href="#visit"><span class="lc-mn">Хэрхэн хүрэх</span><span class="lc-en">Getting Here</span><span class="lc-jp">アクセス</span><span class="lc-kr">오시는 길</span><span class="lc-cn">交通</span></a></li>
         <li><a href="#visit"><span class="lc-mn">Тасалбар</span><span class="lc-en">Tickets</span><span class="lc-jp">チケット</span><span class="lc-kr">입장권</span><span class="lc-cn">门票</span></a></li>
         <li><a href="#shop"><span class="lc-mn">Дэлгүүр</span><span class="lc-en">Shop</span><span class="lc-jp">ショップ</span><span class="lc-kr">쇼핑</span><span class="lc-cn">商店</span></a></li>
-        <li><a href="#contact"><span class="lc-mn">Холбоо барих</span><span class="lc-en">Contact</span><span class="lc-jp">連絡</span><span class="lc-kr">연락처</span><span class="lc-cn">联系</span></a></li>
+        <li><a href="#contact"><span class="lc-mn">Холбоо</span><span class="lc-en">Contact</span><span class="lc-jp">連絡</span><span class="lc-kr">연락처</span><span class="lc-cn">联系</span></a></li>
       </ul>
     </div>
     <div class="footer-col">
